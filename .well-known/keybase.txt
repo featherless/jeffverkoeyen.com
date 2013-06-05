@@ -1,0 +1,66 @@
+==================================================================
+https://keybase.io/featherless
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of http://jeffverkoeyen.com
+  * I am featherless (https://keybase.io/featherless) on keybase.
+  * I have a public key with fingerprint F94C 449D 7054 635A 03FE  BE95 A674 C56D 3DD7 D554
+
+To claim this, I am signing this object:
+
+{
+    "body": {
+        "key": {
+            "fingerprint": "f94c449d7054635a03febe95a674c56d3dd7d554",
+            "host": "keybase.io",
+            "key_id": "a674c56d3dd7d554",
+            "uid": "3deb2bd91adf9b694ade6653abe4d300",
+            "username": "featherless"
+        },
+        "service": {
+            "hostname": "jeffverkoeyen.com",
+            "protocol": "http:"
+        },
+        "type": "web_service_binding",
+        "version": 1
+    },
+    "ctime": 1396686511,
+    "expire_in": 157680000,
+    "prev": "2eecf522a3ecb70fd5c9b1936e4d3a31a44f53923dc3e10ee5f30990519a676d",
+    "seqno": 3,
+    "tag": "signature"
+}
+
+with the aforementioned key, yielding the PGP signature:
+
+-----BEGIN PGP MESSAGE-----
+Version: Keybase OpenPGP v0.1.3
+Comment: https://keybase.io/crypto
+
+yMH5AnicbZFNTBtHFMcNoRE1JeHQA6qUtAyiUYRFdj07a4+NwqG0TRuUHKzmhOXs
+7szaC2bX2V07GBdaVJUDUiXcHsqH0koWVT9CVanIlagoEAJKY77iHFASpCBUQYua
+0lwiKGokZhG9dS6jef//+7335s1VHnO5S76Mfny5tio3XbIw80/SFWqa+iEDZIOk
+QSAD2unhpWp6lJoJU9NtEAAqFhRBwMTHIUGESOKgSmWKkST6BAWJBBLiIwgJwANi
+huVkMIwsWbRBM1iMPSIaYdH/8ScPBUio7JUJ5iWiYlnEgkSoKCIoyVQgkOMco0VN
+XeqgTjtUsmPUjFPLAt0ewISUpjAhc1j9yNRGVTVFzXaDpqneoBgdjJEwDdtQjDiT
+Y7adCDjZdjrh2K9TOXIEisiaTtj8LIEBLM3QQYBnTsXWHDIPsSj6RcTzHkA7E5pJ
+I5rjQD7Rz7HjlKEphvRSqqjI65UgVWQfpxKkYJnHUHRmkiAvCYKKIPZCokDKc5Qi
+FXIYc4jH7KNEwupb9JpugABkbUpRhrS0qC7ZSZOC7tmZ1jJXidt1/IVSZ4Mu94tV
+/+31FW+5a2rvVWm57s3BvFUAL61+11Iebq2pbuzZTwTLFkPZ/tuR3WxFG7igLn+6
+vpGraB56h8vXutdSxZEd3/jXb+Qa+d1Ho7f6ft3pevKg6sdMvO/DL+aC781jpXf0
+m630qY788vzo5rt3vx8envxktfbM1PDPT9Hphy/3LE78FA18/oHoyr1+fmi80N8y
+CPy590OBe3u5i5PB+ub67cq/vPcfr8CRulIlm9mPzTVt4OLvN2qCxtJXoSIhCzt/
+XL0Uzlz5bH165bXOgRMznuctm/6F9r+XSrfGCr98uxKu/K2QvDm73Rs+O4vFrrV/
+M0XUdM438Cxe/lb8TvXYyY/ezub/nDgA7PgcRQ==
+=VtVZ
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/featherless
+
+==================================================================
+
