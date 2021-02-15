@@ -1,10 +1,10 @@
 /* Common Styles */
 h1 {
-  font-family: "museo-sans",sans-serif;
+  font-family: sans-serif;
   font-weight: 100;
 }
 h2, h3, h4 {
-  font-family: "nimbus-sans",sans-serif;
+  font-family: sans-serif;
   font-weight: 300;
 }
 #portfolio p,
@@ -13,7 +13,7 @@ h2, h3, h4 {
 #blogpost blockquote p,
 #about p,
 #about blockquote p {
-  font-family: "calluna",serif;
+  font-family: serif;
   font-weight: 300;
   font-size: 16px;
   line-height: 24px;
@@ -146,7 +146,7 @@ hr {
   background-size: 96px 96px;
   padding-left: 51px;
   padding-top: 44px;
-  font-family: "museo-sans",sans-serif;
+  font-family: sans-serif;
   font-weight: 300;
   margin-top: 0;
   font-size: 16px;
@@ -160,7 +160,7 @@ hr {
 }
 
 .masthead .nav-pills > li > a {
-  font-family: "nimbus-sans",sans-serif;
+  font-family: sans-serif;
   font-weight: 300;
   font-size: 18px;
   padding: 10px 5px;
@@ -249,7 +249,7 @@ hr {
 
 .page h1,
 .page h2 {
-  font-family: "museo-sans",sans-serif;
+  font-family: sans-serif;
   font-weight: 100;
 }
 
@@ -269,7 +269,7 @@ hr {
 .page .timeline-right {
   font-size: 20px;
   color: #999;
-  font-family: "museo-sans",sans-serif;
+  font-family: sans-serif;
   font-weight: 100;
   margin: 10px 0;
 }
@@ -485,7 +485,7 @@ hr {
 
 #pixelheart .techspec {
   color: #FFF;
-  font-family: "nimbus-sans",sans-serif;
+  font-family: sans-serif;
   font-weight: 300;
 }
 
