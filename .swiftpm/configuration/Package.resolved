@@ -1,0 +1,24 @@
+{
+  "originHash" : "8419bb37e6c64d7f6c280f1c951af96cd992524c41c11e5413b2ba126152f3dd",
+  "pins" : [
+    {
+      "identity" : "slipstream",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/jverkoey/slipstream.git",
+      "state" : {
+        "branch" : "main",
+        "revision" : "0187aeaac568fc745d543f32228525d9eb0837dd"
+      }
+    },
+    {
+      "identity" : "swiftsoup",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/scinfu/SwiftSoup.git",
+      "state" : {
+        "revision" : "e2d11208519549c2e5798d70190472045633f22f",
+        "version" : "2.7.3"
+      }
+    }
+  ],
+  "version" : 3
+}
