@@ -38,6 +38,7 @@ struct Site: View {
         Meta(.description, content: "Jeff Verkoeyen is a software designer under the alias featherless@.")
         Meta(.generator, content: "Slipstream")
         Meta(.author, content: "Jeff Verkoeyen")
+        Preload(URL(string: "/gfx/feather.svg"), as: .image)
         Stylesheet(URL(string: "/css/main.css"))
       }
       Body {
