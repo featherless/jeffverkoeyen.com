@@ -1,34 +1,7 @@
 import Foundation
 import Slipstream
 
-struct SiteLink: View {
-  let text: String
-  let destination: URL?
-
-  init(_ text: String, destination: URL?) {
-    self.text = text
-    self.destination = destination
-  }
-
-  var body: some View {
-    Link(text, destination: destination)
-      .padding(4)
-      .padding(16, condition: .startingAt(.medium))
-      .border(
-        .init(.zinc, darkness: 300),
-        edges: .right,
-        condition: .init(within: Breakpoint.small..<Breakpoint.medium, state: .hover)
-      )
-      .border(
-        .init(.zinc, darkness: 300),
-        edges: .bottom,
-        condition: .init(startingAt: .medium, state: .hover)
-      )
-  }
-}
-
 struct Site: View {
-  let desktop = Condition.startingAt(.medium)
   var body: some View {
     HTML {
       Head {
@@ -51,8 +24,8 @@ struct Site: View {
             }
             .textAlignment(.right)
             .padding(.bottom, 16)
-            .padding(.bottom, 0, condition: desktop)
-            .margin(.horizontal, .auto, condition: desktop)
+            .padding(.bottom, 0, condition: .desktop)
+            .margin(.horizontal, .auto, condition: .desktop)
             .fontWeight(300)
 
             .fontSize(40)
@@ -64,21 +37,21 @@ struct Site: View {
               repeat: .no
             )
 
-            .fontSize(48, condition: desktop)
-            .padding(.top, 125, condition: desktop)
-            .padding(.left, 150, condition: desktop)
-            .padding(.right, 48, condition: desktop)
+            .fontSize(48, condition: .desktop)
+            .padding(.top, 125, condition: .desktop)
+            .padding(.left, 150, condition: .desktop)
+            .padding(.right, 48, condition: .desktop)
             .backgroundImage(
               URL(string: "/gfx/feather.svg"),
               size: .size(width: 256, height: 256),
-              condition: desktop
+              condition: .desktop
             )
 
             Div {
-              SiteLink("portfolio", destination: URL(string: "/portfolio"))
-              SiteLink("blog", destination: URL(string: "http://blog.jeffverkoeyen.com/"))
-              SiteLink("contact", destination: URL(string: "/contact"))
-              SiteLink("about", destination: URL(string: "/about"))
+              HomeLink("portfolio", destination: URL(string: "/portfolio"))
+              HomeLink("blog", destination: URL(string: "http://blog.jeffverkoeyen.com/"))
+              HomeLink("contact", destination: URL(string: "/contact"))
+              HomeLink("about", destination: URL(string: "/about"))
             }
             .fontSize(32)
             .fontWeight(300)
@@ -86,12 +59,12 @@ struct Site: View {
             .display(.flex)
             .flexDirection(.y)
             .flexGap(.y, width: 8)
-            .textAlignment(.center, condition: desktop)
-            .flexDirection(.x, condition: desktop)
-            .flexGap(.x, width: 8, condition: desktop)
+            .textAlignment(.center, condition: .desktop)
+            .flexDirection(.x, condition: .desktop)
+            .flexGap(.x, width: 8, condition: .desktop)
             .justifyContent(.center)
             .alignItems(.end)
-            .alignItems(.start, condition: desktop)
+            .alignItems(.start, condition: .desktop)
           }
         }
         .textColor(.zinc, darkness: 950)
