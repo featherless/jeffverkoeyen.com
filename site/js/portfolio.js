@@ -14,7 +14,9 @@ GitHubAPI.Repo = function(username, reponame, callback) {
 
 (function() {
   GitHubAPI.Repo('jverkoey', 'nimbus', function(response) {
-    document.getElementById('nimbus_forks').innerHTML = response.forks + ' forks';
-    document.getElementById('nimbus_followers').innerHTML = response.watchers + ' followers';
+    if (response.forks !== undefined && response.watchers !== undefined) {
+      document.getElementById('nimbus_forks').innerHTML = response.forks + ' forks';
+      document.getElementById('nimbus_followers').innerHTML = response.watchers + ' followers';
+    }
   });
 })();

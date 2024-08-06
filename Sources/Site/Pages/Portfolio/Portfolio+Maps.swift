@@ -10,7 +10,8 @@ extension Portfolio {
           ResponsiveStack(.x) {
             Image(URL(string: "/gfx/gmm_icon@2x.png"))
               .accessibilityLabel("The original Google Maps for iOS app icon from 2012")
-              .frame(width: 0.25, condition: .mobileOnly)
+              .frame(width: 94, height: 94)
+              .frame(width: 172, height: 172, condition: .desktop)
             Link(URL(string: "https://itunes.apple.com/us/app/google-maps/id585027354?mt=8")) {
               Image(URL(string: "/gfx/AppStore.png"))
                 .accessibilityLabel("Download Google Maps for iOS on the App Store")
@@ -82,8 +83,8 @@ iOS foundation of what became publicly known as
 
           Image(URL(string: "/gfx/webby.png"))
             .accessibilityLabel("Webby award winner badge")
-            .frame(height: 64, condition: .mobileOnly)
-            .frame(width: 0.25, condition: .desktop)
+            .frame(width: 64, height: 64)
+            .frame(width: 177, height: 177, condition: .desktop)
         }
         .flexGap(.y, width: 8)
         .flexGap(.x, width: .sectionMargin, condition: .desktop)

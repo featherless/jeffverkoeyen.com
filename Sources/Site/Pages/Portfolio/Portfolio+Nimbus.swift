@@ -12,6 +12,8 @@ extension Portfolio {
               Image(URL(string: "/gfx/nimbus128.png"))
                 .accessibilityLabel("A red panda, the logo for the Nimbus open source framework")
                 .margin(.bottom, 4)
+                .frame(width: 96, height: 96)
+                .frame(width: 128, height: 128, condition: .desktop)
               Div {
                 Paragraph("1299 forks")
                   .id("nimbus_forks")
