@@ -2,25 +2,27 @@ import Foundation
 
 import Slipstream
 
-struct Portfolio: View {
-  var body: some View {
-    Page(
-      path: "/portfolio",
-      title: "portfolio",
-      description: "Jeff Verkoeyen's catalog of open source efforts, company initiatives, teams, and launches."
-    ) {
+extension Portfolio {
+  struct Maps: View {
+    var body: some View {
       Container {
-        HStack(spacing: 16) {
-          VStack(alignment: .center) {
+        ResponsiveStack(.y, spacing: 16) {
+          ResponsiveStack(.x) {
             Image(URL(string: "/gfx/gmm_icon@2x.png"))
               .accessibilityLabel("The original Google Maps for iOS app icon from 2012")
+              .frame(width: 0.25, condition: .mobileOnly)
             Link(URL(string: "https://itunes.apple.com/us/app/google-maps/id585027354?mt=8")) {
-              Image(URL(string: "/gfx/appstore.svg"))
+              Image(URL(string: "/gfx/AppStore.png"))
                 .accessibilityLabel("Download Google Maps for iOS on the App Store")
             }
-            .padding(16)
+            .frame(width: 0.3, condition: .mobileOnly)
+            .modifier(ClassModifier(add: "cursor-pointer"))
+            .padding([.top, .horizontal], 16, condition: .desktop)
           }
-          .frame(width: 0.25)
+          .flexGap(.x, width: 16)
+          .alignItems(.end)
+          .alignItems(.center, condition: .desktop)
+          .frame(width: 0.25, condition: .desktop)
 
           VStack {
             H2 {
@@ -30,7 +32,8 @@ struct Portfolio: View {
                   .textColor(.text, darkness: 700)
               }
             }
-            .fontSize(.fourXLarge)
+            .fontSize(.extraExtraLarge)
+            .fontSize(.fourXLarge, condition: .desktop)
             .fontDesign("rounded")
             .margin(.bottom, 4)
 
@@ -44,16 +47,20 @@ iOS foundation of what became publicly known as
 """)
             Paragraph("June 2012 - April 2013")
               .textColor(.text, darkness: 500)
-              .margin(.bottom, sectionMargin)
+              .margin(.bottom, Double.sectionMargin, condition: .desktop)
           }
-          .frame(width: 0.75)
+          .frame(width: 0.75, condition: .desktop)
         }
+        .alignItems(.start)
+        .alignItems(.center, condition: .desktop)
+        .padding(.bottom, 4, condition: .desktop)
+        .margin(.bottom, Double.sectionMargin)
 
         HorizontalRule()
-          .margin(.vertical, 8)
+          .margin(.vertical, Double.sectionMargin)
 
-        HStack(spacing: 16) {
-          VStack(spacing: 8) {
+        ResponsiveStack {
+          VStack {
             HStack(alignment: .baseline, spacing: 16) {
               Link("Mobile App of the Year", destination: URL(string: "https://techcrunch.com/events/crunchies-2012/winners/"))
                 .underline(condition: .hover)
@@ -67,13 +74,22 @@ iOS foundation of what became publicly known as
                 .textColor(.text, darkness: 500)
             }
           }
-          .fontSize(.extraExtraExtraLarge)
-          .frame(width: 0.75)
+          .modifier(ClassModifier(add: "max-md:self-stretch"))
+          .flexGap(.y, width: 0)
+          .flexGap(.y, width: 8, condition: .desktop)
+          .fontDesign("rounded")
+          .fontSize(.large)
+          .fontSize(.extraExtraExtraLarge, condition: .desktop)
+          .frame(width: 0.75, condition: .desktop)
 
           Image(URL(string: "/gfx/webby.png"))
             .accessibilityLabel("Webby award winner badge")
-            .frame(width: 0.25)
+            .frame(height: 64, condition: .mobileOnly)
+            .frame(width: 0.25, condition: .desktop)
         }
+        .flexGap(.y, width: 8)
+        .flexGap(.x, width: .sectionMargin, condition: .desktop)
+        .alignItems(.center)
         .margin(.vertical, 16)
       }
       .textColor(.text, darkness: 950)

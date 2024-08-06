@@ -3,8 +3,6 @@ import Foundation
 import Markdown
 import Slipstream
 
-let sectionMargin = 16
-
 private struct ContextAwareParagraph<Content: View>: View {
   @Environment(\.disableParagraphMargins) var disableParagraphMargins
 
@@ -14,7 +12,7 @@ private struct ContextAwareParagraph<Content: View>: View {
     Slipstream.Paragraph {
       content()
     }
-    .margin(.bottom, disableParagraphMargins ? 0 : sectionMargin)
+    .margin(.bottom, disableParagraphMargins ? 0 : .sectionMargin)
   }
 }
 
@@ -59,7 +57,7 @@ struct Article: View {
         }
         .listStyle(.decimal)
         .padding(.left, 20)
-        .margin(.bottom, sectionMargin)
+        .margin(.bottom, Double.sectionMargin)
       case is Markdown.UnorderedList:
         Slipstream.List(ordered: false) {
           context.recurse()
@@ -67,7 +65,7 @@ struct Article: View {
         }
         .listStyle(.disc)
         .padding(.left, 20)
-        .margin(.bottom, sectionMargin)
+        .margin(.bottom, Double.sectionMargin)
       case is Markdown.ListItem:
         Slipstream.ListItem {
           context.recurse()
