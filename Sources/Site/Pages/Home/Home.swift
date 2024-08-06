@@ -8,6 +8,7 @@ private struct Hero: View {
       SiteTitle()
     }
     .textAlignment(.right)
+    .padding(.right, 16, condition: .mobileOnly)
     .padding(.bottom, 16)
     .padding(.bottom, 0, condition: .desktop)
     .margin(.horizontal, .auto, condition: .desktop)
@@ -16,7 +17,7 @@ private struct Hero: View {
     // Mobile layout
     .fontSize(40)
     .padding(.top, 75)
-    .margin(.left, 32)
+    .margin(.left, 12)
     .background(
       URL(string: "/gfx/feather.svg"),
       size: .size(width: 184, height: 184),

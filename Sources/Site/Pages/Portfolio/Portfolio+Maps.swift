@@ -5,7 +5,7 @@ import Slipstream
 extension Portfolio {
   struct Maps: View {
     var body: some View {
-      Container {
+      MediumContainer {
         ResponsiveStack(.y, spacing: 16) {
           ResponsiveStack(.x) {
             Image(URL(string: "/gfx/gmm_icon@2x.png"))
@@ -32,9 +32,7 @@ extension Portfolio {
                   .textColor(.text, darkness: 700)
               }
             }
-            .fontSize(.extraExtraLarge)
-            .fontSize(.fourXLarge, condition: .desktop)
-            .fontDesign("rounded")
+            .portfolioSectionHeader()
             .margin(.bottom, 4)
 
             Article("""
@@ -43,7 +41,7 @@ Jeff led UX engineering for the launch of Google Maps for iOS.
 Applying lessons learned from Facebook, Three20, and Nimbus,
 Jeff's leadership enabled the code for Google Maps to form the
 iOS foundation of what became publicly known as
-[Material](http://material.ios). 
+[Material](http://material.ios).
 """)
             Paragraph("June 2012 - April 2013")
               .textColor(.text, darkness: 500)
@@ -53,7 +51,7 @@ iOS foundation of what became publicly known as
         }
         .alignItems(.start)
         .alignItems(.center, condition: .desktop)
-        .padding(.bottom, 4, condition: .desktop)
+        .padding(.bottom, 8, condition: .desktop)
         .margin(.bottom, Double.sectionMargin)
 
         HorizontalRule()
@@ -94,7 +92,6 @@ iOS foundation of what became publicly known as
       }
       .textColor(.text, darkness: 950)
       .padding(.top, 8)
-      .padding(.horizontal, 104, condition: .desktop)
     }
   }
 }
