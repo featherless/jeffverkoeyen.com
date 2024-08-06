@@ -86,6 +86,8 @@ struct Article: View {
       case is Markdown.ThematicBreak:
         Divider()
           .margin(.bottom, sectionMargin)
+          .border(.init(.gray, darkness: 200), width: 1, edges: .top)
+          .border(.white, width: 1, edges: .bottom)
       case is Markdown.LineBreak:
         Linebreak()
       case is Markdown.BlockQuote:
