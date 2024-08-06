@@ -13,28 +13,13 @@ struct About: View {
 
       NarrowContainer {
         Div {
-          VStack {
-            Div {
-              Image(URL(string: "/gfx/jeff.jpg"))
-                .accessibilityLabel("Photograph of Jeff Verkoeyen in Sedona")
-                .border(.white, width: 4)
-                .cornerRadius(.extraExtraLarge)
-                .modifier(ClassModifier(add: "shadow-puck"))
-                .frame(width: 198, height: 198, condition: .desktop)
-            }
-            .margin(.bottom, 4)
-            Paragraph("Jeff Verkoeyen, 2024")
-              .fontSize(.extraSmall)
-              .fontSize(.small, condition: .desktop)
-              .textColor(.zinc, darkness: 500)
-              .textAlignment(.right)
-          }
-          .alignItems(.end)
-          .float(.right)
+          ImagePuck(
+            url: URL(string: "/gfx/jeff.jpg"),
+            accessibilityLabel: "Photograph of Jeff Verkoeyen in Sedona",
+            caption: "Jeff Verkoeyen, 2024"
+          )
           .frame(width: 0.25)
           .frame(width: 0.41, condition: .desktop)
-          .margin(.left, 12)
-          .margin(.bottom, 4)
 
           Div {
             Paragraph("Latest status")
@@ -122,7 +107,27 @@ publicly known as [Material design](http://material.io).
 - [Google Maps is now available for iPhone](https://blog.google/products/maps/google-maps-is-now-available-for-iphone/) — Google, 2012
 - [Google Maps for iPhone](https://daringfireball.net/2012/12/google_maps_iphone) — Daring Fireball, 2012
 - [Google Maps for iPhone is here: how data and design beat Apple](https://www.theverge.com/2012/12/12/3760770/google-maps-iphone-available-features-navigation-transit) — The Verge, 2012
-- [Webby and People’s Voice for Best User Experience](https://www.webbyawards.com/press/press-releases/the-17th-annual-webby-award-winners-announced/) — Webby Awards, 2013 
+- [Webby and People’s Voice for Best User Experience](https://www.webbyawards.com/press/press-releases/the-17th-annual-webby-award-winners-announced/) — Webby Awards, 2013
+""")
+
+          ImagePuck(
+            url: URL(string: "/gfx/family.jpg"),
+            accessibilityLabel: "Photograph of Jeff with his wife and daughter",
+            caption: "Family, 2023"
+          )
+          .frame(width: 0.41)
+
+          Article("""
+---
+
+### Family and travel
+
+Jeff lives in [Montecito](https://santabarbaraca.com/explore-and-discover-santa-barbara/neighborhoods-towns/montecito/)
+with Nina, Eva, and Buddha (the cat).
+
+Prior to Montecito, Jeff traveled all over the world, from
+South America to New Zealand, Europe to Southeast Asia. Of
+everywhere he's been, Montecito is his favorite.
 """)
         }
         .padding(.left, 8)
