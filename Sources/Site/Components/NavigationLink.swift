@@ -21,7 +21,7 @@ struct NavigationLink: View {
       .margin(.top, 8, condition: .desktop)
       .border(
         .init(.zinc, darkness: isCurrent ? 400 : 300),
-        edges: isHomePage ? .right : .left,
+        edges: .right,
         condition: .mobileOnly + .hover
       )
       .border(
@@ -33,7 +33,7 @@ struct NavigationLink: View {
       link
         .border(
           .init(.zinc, darkness: 400),
-          edges: .left,
+          edges: .right,
           condition: .mobileOnly
         )
         .border(

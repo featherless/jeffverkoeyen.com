@@ -13,12 +13,13 @@ struct NavigationBar: View {
           .fontSize(.base, condition: .desktop)
           .fontSize(.large, condition: .desktop)
           .display(.flex)
+          .alignItems(.end)
           .flexDirection(.y)
           .flexGap(.y, width: 4)
           .flexDirection(.x, condition: .desktop)
           .flexGap(.x, width: 16, condition: .desktop)
           .margin(.top, 8, condition: .mobileOnly)
-          
+
           Div {
             Link(URL(string: "/")) {
               SiteTitle()
@@ -36,6 +37,7 @@ struct NavigationBar: View {
             repeat: .no
           )
         }
+        .flexDirection(.x, reversed: true, condition: .mobileOnly)
         .justifyContent(.between)
         .alignItems(.end)
         .fontWeight(300)
