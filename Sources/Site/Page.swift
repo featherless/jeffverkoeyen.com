@@ -38,6 +38,34 @@ struct Page<Content: View>: View {
       }
       Body {
         content()
+
+        if path != "/" {
+          Footer {
+            Container {
+              Div {
+                Link(URL(string: "https://github.com/jverkoey/slipstream")) {
+                  Image(URL(string: "/gfx/built-with-slipstream.svg"))
+                    .accessibilityLabel("Built with Slipstream")
+                }
+                .modifier(ClassModifier(add: "cursor-pointer"))
+                VStack {
+                  Paragraph("Copyright © 2002-\(Calendar.current.component(.year, from: Date())) Jeff Verkoeyen")
+                    .textColor(.zinc, darkness: 600)
+                }
+                .alignItems(.end)
+              }
+              .display(.flex)
+              .flexDirection(.y)
+              .flexGap(.y, width: 16, condition: .mobileOnly)
+              .flexDirection(.x, condition: .desktop)
+              .justifyContent(.between)
+              .alignItems(.end)
+            }
+            .padding(.vertical, 32)
+          }
+          .border(.palette(.zinc, darkness: 300), width: 1, edges: .top)
+          .background(.zinc, darkness: 200)
+        }
       }
       .background(.gray, darkness: 100)
       .antialiased()

@@ -43,23 +43,25 @@ struct Home: View {
       description: "Jeff Verkoeyen is a software designer under the alias featherless@."
     ) {
       Container {
-        VStack(spacing: 8) {
-          Hero()
-          Div {
-            NavigationLinks()
+        Navigation {
+          VStack(spacing: 8) {
+            Hero()
+            Div {
+              NavigationLinks()
+            }
+            .fontSize(32)
+            .fontWeight(300)
+            .textAlignment(.right)
+            .display(.flex)
+            .flexDirection(.y)
+            .flexGap(.y, width: 8)
+            .textAlignment(.center, condition: .desktop)
+            .flexDirection(.x, condition: .desktop)
+            .flexGap(.x, width: 8, condition: .desktop)
+            .justifyContent(.center)
+            .alignItems(.end)
+            .alignItems(.start, condition: .desktop)
           }
-          .fontSize(32)
-          .fontWeight(300)
-          .textAlignment(.right)
-          .display(.flex)
-          .flexDirection(.y)
-          .flexGap(.y, width: 8)
-          .textAlignment(.center, condition: .desktop)
-          .flexDirection(.x, condition: .desktop)
-          .flexGap(.x, width: 8, condition: .desktop)
-          .justifyContent(.center)
-          .alignItems(.end)
-          .alignItems(.start, condition: .desktop)
         }
       }
       .padding(.horizontal, 8)
