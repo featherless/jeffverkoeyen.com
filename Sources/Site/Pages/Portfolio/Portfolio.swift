@@ -24,6 +24,7 @@ struct Portfolio: View {
       title: "portfolio",
       description: "Jeff Verkoeyen's catalog of open source efforts, company initiatives, teams, and launches."
     ) {
+      Google()
       Maps()
       Nimbus()
       Facebook()
