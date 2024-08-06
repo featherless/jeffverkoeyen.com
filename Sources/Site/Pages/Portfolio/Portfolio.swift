@@ -30,7 +30,7 @@ struct Portfolio: View {
         Nimbus()
         Facebook()
       }
-      .padding(.horizontal, 8)
+      .padding(.horizontal, 16)
       .textColor(.text, darkness: 950)
       .textColor(.text, darkness: 200, condition: .dark)
 
