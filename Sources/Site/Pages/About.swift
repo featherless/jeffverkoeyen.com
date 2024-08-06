@@ -153,7 +153,7 @@ South America to New Zealand, Europe to Southeast Asia. Of
 everywhere he's been, Montecito is his favorite.
 """)
         }
-        .padding(.horizontal, 8)
+        .padding(.left, 8)
         .margin(.bottom, 32)
       }
       .textColor(.text, darkness: 950)
