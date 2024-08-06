@@ -92,8 +92,9 @@ struct Article: View {
         Blockquote {
           context.recurse()
         }
-        .margin(.left, 16)
-        .margin(.left, 32, condition: .desktop)
+        .border(.palette(.zinc, darkness: 300), width: 1, edges: .left)
+        .padding(.horizontal, 16)
+        .padding(.horizontal, 24, condition: .desktop)
         .italic()
       case is Markdown.SoftBreak:
         Slipstream.Text("\n")

@@ -20,6 +20,7 @@ struct About: View {
                 .border(.white, width: 4)
                 .cornerRadius(.extraExtraLarge)
                 .modifier(ClassModifier(add: "shadow-puck"))
+                .frame(width: 198, height: 198, condition: .desktop)
             }
             .margin(.bottom, 4)
             Paragraph("Jeff Verkoeyen, 2024")
@@ -32,6 +33,7 @@ struct About: View {
           .frame(width: 0.25)
           .frame(width: 0.41, condition: .desktop)
           .margin(.left, 12)
+          .margin(.bottom, 4)
 
           Div {
             Paragraph("Latest status")
@@ -71,7 +73,7 @@ to tune product UX to people's needs and expectations on iOS.
 ## Related press
 
 - [Much-needed Gmail redesign greatly simplifies settings on iOS](https://9to5google.com/2022/10/17/gmail-settings-redesign/) — 9to5Google
-- [Google will stop trying to make its iOS apps look like Android apps](https://www.engadget.com/google-material-design-uikit-171651054.html) — engadget, also reported by [The Verge](https://www.theverge.com/2021/10/12/22722130/google-ios-app-material-design-components-uikit), [AppleInsider](https://appleinsider.com/articles/21/10/12/google-dropping-material-design-in-ios-to-make-iphone-apps-look-more-like-they-should), [MacRumors](https://www.macrumors.com/2021/10/11/google-apps-for-ios-to-switch-to-uikit/)
+- [Google will stop trying to make its iOS apps look like Android apps](https://www.engadget.com/google-material-design-uikit-171651054.html) — Engadget, also reported by [The Verge](https://www.theverge.com/2021/10/12/22722130/google-ios-app-material-design-components-uikit), [AppleInsider](https://appleinsider.com/articles/21/10/12/google-dropping-material-design-in-ios-to-make-iphone-apps-look-more-like-they-should), [MacRumors](https://www.macrumors.com/2021/10/11/google-apps-for-ios-to-switch-to-uikit/)
 
 If you've used a Google product on Apple platforms, you've used code built or influenced by Jeff's team.
 
