@@ -37,7 +37,13 @@ struct Page<Content: View>: View {
         Stylesheet(URL(string: "/css/main.css"))
       }
       Body {
-        content()
+        Div {
+          if path != "/" {
+            NavigationBar()
+          }
+          content()
+        }
+        .frame(minHeight: .screen)
 
         if path != "/" {
           Footer {

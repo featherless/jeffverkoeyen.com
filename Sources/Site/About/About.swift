@@ -9,8 +9,6 @@ struct About: View {
       title: "about",
       description: "Google Maps for iOS, Google iOS design leadership, Facebook iOS employee #3. Jeff Verkoeyen's professional history."
     ) {
-      NavigationBar()
-
       NarrowContainer {
         Div {
           ImagePuck(

@@ -15,6 +15,7 @@ if !FileManager.default.fileExists(atPath: sourceURL.absoluteString) {
 let sitemap: [String: any View] = [
   "index.html": Home(),
   "about/index.html": About(),
+  "contact/index.html": Contact(),
 ]
 
 for (path, view) in sitemap {
