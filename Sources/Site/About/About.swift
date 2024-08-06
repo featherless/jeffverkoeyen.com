@@ -77,7 +77,7 @@ to tune product UX to people's needs and expectations on iOS.
 
 If you've used a Google product on Apple platforms, you've used code built or influenced by Jeff's team.
 
-Jeff left Google in 2024.
+Jeff quit Google in 2024. Stay tuned :)
 
 ---
 
