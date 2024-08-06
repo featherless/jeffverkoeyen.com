@@ -13,6 +13,7 @@ struct ImagePuck: View {
         Image(url)
           .accessibilityLabel(accessibilityLabel)
           .border(.white, width: 4)
+          .border(.init(.zinc, darkness: 700), width: 4, condition: .dark)
           .cornerRadius(.extraExtraLarge)
           .modifier(ClassModifier(add: "shadow-puck"))
           .frame(width: 198, height: 198, condition: .desktop)

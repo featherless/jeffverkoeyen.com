@@ -23,6 +23,7 @@ private struct Hero: View {
       size: .size(width: 184, height: 184),
       repeat: .no
     )
+    .background(URL(string: "/gfx/feather-dark.svg"), condition: .dark)
 
     // Desktop layout
     .fontSize(48, condition: .desktop)
@@ -69,6 +70,7 @@ struct Home: View {
       }
       .padding(.horizontal, 8)
       .textColor(.text, darkness: 950)
+      .textColor(.text, darkness: 50, condition: .dark)
       .fontDesign("rounded")
     }
   }

@@ -14,7 +14,7 @@ struct NavigationBar: View {
           .fontSize(.large, condition: .desktop)
           .display(.flex)
           .alignItems(.end)
-          
+
           .flexDirection(.y)
           .flexGap(.y, width: 4)
           .margin(.top, 8, condition: .mobileOnly)
@@ -40,6 +40,7 @@ struct NavigationBar: View {
             size: .size(width: 96, height: 96),
             repeat: .no
           )
+          .background(URL(string: "/gfx/feather-dark.svg"), condition: .dark)
         }
         .flexDirection(.x, reversed: true, condition: .mobileOnly)
         .justifyContent(.between)
@@ -48,6 +49,7 @@ struct NavigationBar: View {
       }
     }
     .textColor(.text, darkness: 950)
+    .textColor(.text, darkness: 50, condition: .dark)
     .margin(.bottom, 32)
   }
 }

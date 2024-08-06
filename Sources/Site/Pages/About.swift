@@ -24,6 +24,8 @@ struct About: View {
               .fontSize(.small)
               .textColor(.text, darkness: 500)
             Paragraph("Building a stealth startup")
+              .textColor(.text, darkness: 50)
+              .textColor(.text, darkness: 950, condition: .dark)
           }
           .margin(.top, 4)
           .margin(.bottom, 16)
@@ -151,10 +153,11 @@ South America to New Zealand, Europe to Southeast Asia. Of
 everywhere he's been, Montecito is his favorite.
 """)
         }
-        .padding(.left, 8)
+        .padding(.horizontal, 8)
         .margin(.bottom, 32)
       }
       .textColor(.text, darkness: 950)
+      .textColor(.text, darkness: 200, condition: .dark)
     }
   }
 }

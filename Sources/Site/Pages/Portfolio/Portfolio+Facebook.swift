@@ -13,6 +13,7 @@ extension Portfolio {
                 Text("Facebook")
                 Small("for iPad")
                   .textColor(.text, darkness: 700)
+                  .textColor(.text, darkness: 300, condition: .dark)
               }
             }
             .portfolioSectionHeader()
@@ -25,15 +26,18 @@ was able to quickly and efficiently create a universal app that supported both t
 iPad and the iPhone. 
 """)
             Paragraph("June 2010 - June 2011")
-              .textColor(.text, darkness: 500)
+              .subtitleStyle()
               .margin(.bottom, Double.sectionMargin, condition: .desktop)
           }
         }
         .padding(.vertical, 32)
       }
       .border(.init(.blue, darkness: 100), edges: .top)
+      .border(.init(.blue, darkness: 900), edges: .top, condition: .dark)
       .border(.white, edges: .bottom)
+      .border(.init(.zinc, darkness: 950), edges: .bottom, condition: .dark)
       .background(.blue, darkness: 50)
+      .background(.blue, darkness: 950, condition: .dark)
     }
   }
 }

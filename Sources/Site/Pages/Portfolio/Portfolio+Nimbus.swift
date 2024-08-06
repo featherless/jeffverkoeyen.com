@@ -20,7 +20,7 @@ extension Portfolio {
                 Paragraph("6452 followers")
                   .id("nimbus_followers")
               }
-              .textColor(.text, darkness: 500)
+              .subtitleStyle()
               .fontSize(.small, condition: .mobileOnly)
             }
             .float(.right)
@@ -41,7 +41,7 @@ As of 2024, Nimbus is still [one of the top Objective-C
 projects on GitHub](https://github.com/EvanLi/Github-Ranking/blob/master/Top100/Objective-C.md).
 """)
               Paragraph("June 2011 - May 2024")
-                .textColor(.text, darkness: 500)
+                .subtitleStyle()
                 .margin(.bottom, Double.sectionMargin, condition: .desktop)
             }
           }
@@ -49,8 +49,11 @@ projects on GitHub](https://github.com/EvanLi/Github-Ranking/blob/master/Top100/
         .padding(.vertical, 32)
       }
       .border(.init(.orange, darkness: 100), edges: .top)
+      .border(.init(.orange, darkness: 900), edges: .top, condition: .dark)
       .border(.white, edges: .bottom)
+      .border(.init(.zinc, darkness: 950), edges: .bottom, condition: .dark)
       .background(.orange, darkness: 50)
+      .background(.orange, darkness: 950, condition: .dark)
     }
   }
 }

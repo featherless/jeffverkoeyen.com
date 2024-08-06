@@ -17,6 +17,7 @@ private struct AppView: View {
       Paragraph(name)
         .fontSize(.small)
         .textColor(.text, darkness: 700)
+        .textColor(.text, darkness: 300, condition: .dark)
     }
     .margin(8)
   }
@@ -55,6 +56,7 @@ extension Portfolio {
                 Text("Google")
                 Small("Apple platforms design leadership")
                   .textColor(.text, darkness: 700)
+                  .textColor(.text, darkness: 300, condition: .dark)
               }
             }
             .portfolioSectionHeader()
@@ -71,7 +73,7 @@ Guidelines and the design guidance coming out of Android.
 If you've used a Google product on Apple platforms, you've used code owned by Jeff's team.
 """)
             Paragraph("2014 - 2024")
-              .textColor(.text, darkness: 500)
+              .subtitleStyle()
               .margin(.bottom, Double.sectionMargin)
               .textAlignment(.center)
 

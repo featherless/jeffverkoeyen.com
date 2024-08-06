@@ -76,6 +76,7 @@ struct Article: View {
             context.recurse()
           }
           .textColor(.link, darkness: 700)
+          .textColor(.link, darkness: 400, condition: .dark)
           .fontWeight(600)
           .underline(condition: .hover)
         } else {
@@ -90,6 +91,7 @@ struct Article: View {
           context.recurse()
         }
         .border(.palette(.zinc, darkness: 300), width: 1, edges: .left)
+        .border(.palette(.zinc, darkness: 500), width: 1, edges: .left, condition: .dark)
         .padding(.horizontal, 16)
         .padding(.horizontal, 24, condition: .desktop)
         .italic()

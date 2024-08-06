@@ -31,6 +31,7 @@ extension Portfolio {
                 Text("Google Maps")
                 Small("for iPhone")
                   .textColor(.text, darkness: 700)
+                  .textColor(.text, darkness: 300, condition: .dark)
               }
             }
             .portfolioSectionHeader()
@@ -45,7 +46,7 @@ iOS foundation of what became publicly known as
 [Material](http://material.ios).
 """)
             Paragraph("June 2012 - April 2013")
-              .textColor(.text, darkness: 500)
+              .subtitleStyle()
               .margin(.bottom, Double.sectionMargin, condition: .desktop)
           }
           .frame(width: 0.75, condition: .desktop)
@@ -64,13 +65,13 @@ iOS foundation of what became publicly known as
               Link("Mobile App of the Year", destination: URL(string: "https://techcrunch.com/events/crunchies-2012/winners/"))
                 .underline(condition: .hover)
               Small("Crunchies 2012")
-                .textColor(.text, darkness: 500)
+                .subtitleStyle()
             }
             HStack(alignment: .baseline, spacing: 16) {
               Link("Best User Experience", destination: URL(string: "https://www.webbyawards.com/press/press-releases/the-17th-annual-webby-award-winners-announced/"))
                 .underline(condition: .hover)
               Small("Webby Awards 2013")
-                .textColor(.text, darkness: 500)
+                .subtitleStyle()
             }
           }
           .modifier(ClassModifier(add: "max-md:self-stretch"))
@@ -91,7 +92,6 @@ iOS foundation of what became publicly known as
         .alignItems(.center)
         .margin(.vertical, 16)
       }
-      .textColor(.text, darkness: 950)
       .padding(.top, 8)
     }
   }
