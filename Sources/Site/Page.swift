@@ -48,7 +48,7 @@ struct Page<Content: View>: View {
         if path != "/" {
           Footer {
             Container {
-              Div {
+              VStack(spacing: 16) {
                 Link(URL(string: "https://github.com/jverkoey/slipstream")) {
                   Image(URL(string: "/gfx/built-with-slipstream.svg"))
                     .accessibilityLabel("Built with Slipstream")
@@ -60,12 +60,8 @@ struct Page<Content: View>: View {
                 }
                 .alignItems(.end)
               }
-              .display(.flex)
-              .flexDirection(.y)
-              .flexGap(.y, width: 16, condition: .mobileOnly)
-              .flexDirection(.x, condition: .desktop)
               .justifyContent(.between)
-              .alignItems(.end)
+              .alignItems(.center)
             }
             .padding(.vertical, 32)
           }

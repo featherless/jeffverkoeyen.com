@@ -14,11 +14,14 @@ struct NavigationBar: View {
           .fontSize(.large, condition: .desktop)
           .display(.flex)
           .alignItems(.end)
+          
           .flexDirection(.y)
           .flexGap(.y, width: 4)
+          .margin(.top, 8, condition: .mobileOnly)
+
           .flexDirection(.x, condition: .desktop)
           .flexGap(.x, width: 16, condition: .desktop)
-          .margin(.top, 8, condition: .mobileOnly)
+          .alignItems(.start, condition: .desktop)
 
           Div {
             Link(URL(string: "/")) {
@@ -26,7 +29,8 @@ struct NavigationBar: View {
             }
           }
           .textAlignment(.right)
-          .padding(.bottom, 10)
+          .padding(.bottom, 8, condition: .desktop)
+          .margin(.bottom, 1, condition: .desktop)
           .margin(.horizontal, .auto, condition: .desktop)
           .fontLeading(.tight)
           .padding(.top, 44)

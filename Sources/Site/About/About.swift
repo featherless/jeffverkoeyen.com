@@ -73,7 +73,18 @@ From 2010 to 2011, Jeff built v1 of the Facebook iPad app with [Brandon Walkin](
 and had it demoed to Steve Jobs. Jeff left Facebook in 2011 to turn Three20 into
 [Nimbus](http://github.com/jverkoey/nimbus), an open source framework whose growth was bounded
 by the quality of its documentation.
+""")
 
+          Link(URL(string: "http://nimbuskit.info")) {
+            Image(URL(string: "/gfx/nimbus128.png"))
+              .accessibilityLabel("A red panda, the logo for the Nimbus open source framework")
+          }
+          .float(.right)
+          .frame(width: 0.3)
+          .frame(width: 0.25, condition: .desktop)
+          .margin([.left, .bottom], 8)
+
+          Article("""
 > "Not only is Nimbus incredibly useful, but it serves as an exemplar of responsible development (a “framework whose feature set grows only as fast as its documentation” is an attitude I wish a lot more projects would adopt). Three cheers to Jeff Verkoeyen and all of the contributors for their hard work on this."    
 > — Mattt Thompson (of [NSHipster](https://nshipster.com) and [AFNetworking](https://github.com/AFNetworking/AFNetworking))
 
@@ -83,7 +94,19 @@ and Jeff became one of the few engineers that [left Facebook to join Google](htt
 at the time (most were doing the opposite). After one month on the Google+ iPad project, and
 another few months on the Google+ Games SDK, [Apple announced](https://www.theguardian.com/technology/2012/may/11/apple-maps-io6-google)
 that they were going to stop using Google Maps for their native Maps app.
+""")
 
+          Link(URL(string: "https://apps.apple.com/us/app/google-maps/id585027354")) {
+            Image(URL(string: "/gfx/gmm_icon@2x.png"))
+              .accessibilityLabel("The original Google Maps for iOS app icon from 2012")
+          }
+          .float(.right)
+          .frame(width: 0.3)
+          .frame(width: 0.25, condition: .desktop)
+          .margin([.left, .bottom], 16)
+          .margin(.top, 4)
+
+          Article("""
 Within a week, Jeff found and joined the team that would end up launching six months later
 one of the industry’s most well received, stable, and polished v1 apps to date:
 [Google Maps for iOS](https://apps.apple.com/us/app/google-maps/id585027354). He was lucky to
