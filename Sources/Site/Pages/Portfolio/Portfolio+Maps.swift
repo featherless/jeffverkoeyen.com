@@ -19,6 +19,7 @@ extension Portfolio {
             .frame(width: 0.3, condition: .mobileOnly)
             .modifier(ClassModifier(add: "cursor-pointer"))
             .padding([.top, .horizontal], 16, condition: .desktop)
+            .padding(.bottom, 4)
           }
           .flexGap(.x, width: 16)
           .alignItems(.end)
