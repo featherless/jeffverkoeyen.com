@@ -16,6 +16,7 @@ let sitemap: [String: any View] = [
   "index.html": Home(),
   "about/index.html": About(),
   "contact/index.html": Contact(),
+  "portfolio/index.html": Portfolio(),
 ]
 
 for (path, view) in sitemap {

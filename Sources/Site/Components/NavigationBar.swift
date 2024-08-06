@@ -6,7 +6,7 @@ struct NavigationBar: View {
   var body: some View {
     NarrowContainer {
       Navigation {
-        HStack {
+        HStack(alignment: .end) {
           Div {
             NavigationLinks()
           }
@@ -43,12 +43,11 @@ struct NavigationBar: View {
         }
         .flexDirection(.x, reversed: true, condition: .mobileOnly)
         .justifyContent(.between)
-        .alignItems(.end)
         .fontWeight(300)
         .fontDesign("rounded")
       }
     }
-    .textColor(.zinc, darkness: 950)
+    .textColor(.text, darkness: 950)
     .margin(.bottom, 32)
   }
 }

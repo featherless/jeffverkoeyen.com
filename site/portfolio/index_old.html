@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>portfolio ~ featherless software design</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <link href="/css/bootstrap.css" rel="stylesheet">
+    <link href="/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="/css/portfolio.css" rel="stylesheet">
+  </head>
+
+  <body>
+
+    <div class="container-narrow">
+
+      <div class="masthead">
+        <a href="/"><h3 class="pull-right">featherless<br/>software design</h3></a>
+        <ul class="nav nav-pills">
+          <li class="active"><a href="/portfolio">portfolio</a></li>
+          <li><a href="http://blog.jeffverkoeyen.com">blog</a></li>
+          <li><a href="/contact">contact</a></li>
+          <li><a href="/about">about</a></li>
+        </ul>
+      </div>
+
+    </div> <!-- /container-narrow -->
+    
+    <div id="portfolio">
+
+      <div id="googlemaps" class="page">
+        <div class="container">
+          
+          <!-- Intro -->
+          <div class="row-fluid">
+            <div class="span3">
+              <a href="https://itunes.apple.com/us/app/google-maps/id585027354?mt=8"><div class="gmm_icon"></div></a>
+              <a href="https://itunes.apple.com/us/app/google-maps/id585027354?mt=8"><div class="appstore"></div></a>
+            </div>
+            <div class="span9">
+              <h1>Google Maps <small>for iPhone</small></h1>
+              <p>
+                Jeff built many of the core user interface components for Google's first native
+                version of Google Maps for iOS. These core components were designed from the start
+                to be modular and, after the resoundingly successful launch in December, Jeff
+                focused on sharing these components with the rest of Google's iOS offerings.
+              </p>
+              <div class="timeline">June 2012 - April 2013</div>
+            </div>
+          </div> <!-- /row-fluid -->
+          
+          <hr />
+          
+          <div class="row-fluid">
+            <div class="span8">
+              <p>
+                Notable work includes building a custom <code>UINavigationController</code>-like
+                controller for presenting all of the views and transitions seen in the app,
+                experimenting with the user experience for the sliding footer component and
+                corresponding paging mechanism, and using Nimbus features to drastically reduce code
+                complexity in the app.
+              </p>
+            </div>
+            <div class="span4">
+              <p>
+                Much time was spent in a conference room with the design team and
+                Jeff's sound system backpack as they polished the app before launch.
+              </p>
+            </div>
+          </div> <!-- /row-fluid -->
+          
+          <hr />
+          
+          <!-- Awards -->
+          <div class="row-fluid">
+            <div class="span9">
+              <h2>Mobile App of the Year <small>Crunchies 2012</small></h2>
+              <h2>Best User Experience <small>Webby Awards 2012</small></h2>
+              <h2>Best Use of GPS <small>Webby Awards 2012</small></h2>
+            </div>
+            <div class="span3"><div class="webby"></div></div>
+          </div> <!-- /row-fluid -->
+
+        </div>
+      </div> <!-- /#googlemaps -->
+
+      <div id="nimbus" class="page">
+        <div class="container">
+          
+          <!-- Intro -->
+          <div class="row-fluid">
+            <div class="span9">
+              <h1>Nimbus</h1>
+              <p>The iOS framework that grows only as fast as its documentation.</p>
+              <p>
+                Nimbus was initially created as a replacement for the Three20 open source framework
+                but has since grown into its own as a fully-modular open source framework. It is
+                because of this modular design that Nimbus has been integrated into so many
+                projects and now drives critical components for well over one hundred million
+                application installs.
+              </p>
+              <p>Learn more at <a href="http://nimbuskit.info">nimbuskit.info</a>.</p>
+              <div class="timeline">June 2011 - </div>
+            </div>
+            <div class="span3">
+              <a href="http://www.youtube.com/watch?v=y6GaPkkGZGw"><div class="nimbus_icon"></div></a>
+              <div class="statistics">
+                <h4 id="nimbus_forks">551 forks</h4>
+                <h4 id="nimbus_followers">2815 followers</h4>
+              </div>
+            </div>
+          </div> <!-- /row-fluid -->
+          
+          <hr />
+          
+          <!-- Features -->
+          <div class="row-fluid">
+            <div class="span4">
+              <h4>Attributed Labels</h4>
+              <p>Present <code>NSAttributedString</code> objects with links and inline images
+                as easily as using a <code>UILabel</code>.</p>
+            </div>
+            <div class="span4">
+              <h4>Table Models</h4>
+              <p>Trim table view controller complexity by using models to store the objects that represent
+                cells in table views.</p>
+            </div>
+            <div class="span4">
+              <h4>Photo Viewer</h4>
+              <p>A network-enabled, pre-fetching photo viewer that can be plugged into any remote
+                API.</p>
+            </div>
+          </div> <!-- /row-fluid -->
+          
+          <div class="row-fluid">
+            <div class="span4">
+              <h4>CSS</h4>
+              <p>An experimental feature for using CSS to define application style. Includes the
+                <a href="http://www.youtube.com/watch?v=i_5LbQ8e9BU">Chameleon</a> tool for
+                live updates.</p>
+            </div>
+            <div class="span4">
+              <h4>Network Image View</h4>
+              <p>This view noticeably improves UI performance by offloading most of the image
+                processing to a background thread.</p>
+            </div>
+            <div class="span4">
+              <h4>Debugging Tools</h4>
+              <p>Live view inspection on the device using the Overview tool. See real-time graphs of
+                RAM and disk usage for monitoring memory usage.</p>
+            </div>
+          </div> <!-- /row-fluid -->
+          
+        </div> <!-- /container -->
+      </div> <!-- /#nimbus -->
+
+      <div id="facebook" class="page">
+        <div class="container">
+          
+          <!-- Intro -->
+          <div class="row-fluid">
+            <div class="span9">
+              <h1>Facebook <small>for iPad</small></h1>
+              <p>
+                Jeff worked on the first version of the Facebook iPad app as a universal app that
+                shared the existing iPhone app's code base. Jeff built one of the first
+                implementations of the now standard "drawer" interface and ported this to the
+                Facebook iPhone app.
+              </p>
+              <div class="timeline">June 2010 - June 2011</div>
+            </div>
+          </div> <!-- /row-fluid -->
+
+        </div> <!-- /container -->
+      </div> <!-- /#facebook -->
+
+      <div id="pixelheart" class="page">
+        <div class="container">
+          
+          <div class="pixelheart_logo"></div>
+          
+          <!-- Intro -->
+          <div class="row-fluid">
+            <div class="span9">
+              <h1>Pixel Heart</h1>
+              <p>
+                Jeff began teaching himself how to build electronics in early 2012 and by the end of
+                the year initiated construction of his first large-scale art installation, the Pixel
+                Heart.
+              </p>
+              <div class="timeline">November 2012 - Summer 2013</div>
+            </div>
+            <div class="span3">
+              <h2>Hardware</h2>
+              <div class="techspec">1536 RGB LED pixels</div>
+              <div class="techspec">48 x 32 resolution</div>
+              <div class="techspec">12 x 8 ft</div>
+              <div class="techspec">0.3ppi</div>
+            </div>
+          </div> <!-- /row-fluid -->
+          
+          <hr />
+
+          <div class="row-fluid">
+            <div class="offset2 span8">
+              <p>
+                The PixelHeart was controlled using custom-built VJ software called the
+                <a href="https://github.com/thepixelheart/PixelPusher">PixelPusher</a>.
+                PixelPusher supported compositing audio-reactive animations together in a
+                visual interactive manner, similar to Traktor.
+              </p>
+              <video width="480" height="360" controls>
+                <source src="pixelheart/pixelheart.mov" type="video/mp4">
+              </video>
+            </div>
+          </div> <!-- /row-fluid -->
+
+          <!-- Animations -->
+          <div class="row-fluid">
+            <div class="offset5 span3">
+              <span class="pixelheart_animation1"></span>
+              <span class="pixelheart_animation2"></span>
+              <span class="pixelheart_animation3"></span>
+              <span class="pixelheart_animation4"></span>
+            </div>
+          </div> <!-- /row-fluid -->
+
+        </div>
+      </div> <!-- /#googlemaps -->
+
+    </div> <!-- /#portfolio -->
+
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/portfolio.js"></script>
+    <script type="text/javascript">
+
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-8961075-1']);
+      _gaq.push(['_setDomainName', 'jeffverkoeyen.com']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+
+    </script>
+  </body>
+</html>

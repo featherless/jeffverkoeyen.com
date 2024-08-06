@@ -8,7 +8,7 @@ struct ImagePuck: View {
   let caption: String
 
   var body: some View {
-    VStack {
+    VStack(alignment: .end) {
       Div {
         Image(url)
           .accessibilityLabel(accessibilityLabel)
@@ -21,10 +21,9 @@ struct ImagePuck: View {
       Paragraph(caption)
         .fontSize(.extraSmall)
         .fontSize(.small, condition: .desktop)
-        .textColor(.zinc, darkness: 500)
+        .textColor(.text, darkness: 500)
         .textAlignment(.right)
     }
-    .alignItems(.end)
     .float(.right)
     .margin(.left, 12)
     .margin(.bottom, 4)

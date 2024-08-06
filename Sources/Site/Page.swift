@@ -48,20 +48,18 @@ struct Page<Content: View>: View {
         if path != "/" {
           Footer {
             Container {
-              VStack(spacing: 16) {
+              VStack(alignment: .center, spacing: 16) {
                 Link(URL(string: "https://github.com/jverkoey/slipstream")) {
                   Image(URL(string: "/gfx/built-with-slipstream.svg"))
                     .accessibilityLabel("Built with Slipstream")
                 }
                 .modifier(ClassModifier(add: "cursor-pointer"))
-                VStack {
+                VStack(alignment: .end) {
                   Paragraph("Copyright © 2002-\(Calendar.current.component(.year, from: Date())) Jeff Verkoeyen")
-                    .textColor(.zinc, darkness: 600)
+                    .textColor(.text, darkness: 600)
                 }
-                .alignItems(.end)
               }
               .justifyContent(.between)
-              .alignItems(.center)
             }
             .padding(.vertical, 32)
           }

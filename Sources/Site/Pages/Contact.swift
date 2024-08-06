@@ -32,7 +32,7 @@ struct Contact: View {
         .flexGap(.y, width: 16)
         .margin(.bottom, 32)
       }
-      .textColor(.zinc, darkness: 900)
+      .textColor(.text, darkness: 900)
     }
   }
 }

@@ -44,8 +44,9 @@ struct Home: View {
     ) {
       Container {
         Navigation {
-          VStack(spacing: 8) {
+          VStack(alignment: .end, spacing: 8) {
             Hero()
+              .modifier(ClassModifier(add: "self-stretch"))
             Div {
               NavigationLinks()
             }
@@ -62,10 +63,11 @@ struct Home: View {
             .alignItems(.end)
             .alignItems(.start, condition: .desktop)
           }
+          .alignItems(.center, condition: .desktop)
         }
       }
       .padding(.horizontal, 8)
-      .textColor(.zinc, darkness: 950)
+      .textColor(.text, darkness: 950)
       .fontDesign("rounded")
     }
   }

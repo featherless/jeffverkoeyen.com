@@ -22,7 +22,7 @@ struct About: View {
           Div {
             Paragraph("Latest status")
               .fontSize(.small)
-              .textColor(.zinc, darkness: 500)
+              .textColor(.text, darkness: 500)
             Paragraph("Building a stealth startup")
           }
           .margin(.top, 4)
@@ -154,7 +154,7 @@ everywhere he's been, Montecito is his favorite.
         .padding(.left, 8)
         .margin(.bottom, 32)
       }
-      .textColor(.zinc, darkness: 950)
+      .textColor(.text, darkness: 950)
     }
   }
 }

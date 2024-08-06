@@ -3,7 +3,7 @@ import Foundation
 import Markdown
 import Slipstream
 
-private let sectionMargin = 16
+let sectionMargin = 16
 
 private struct ContextAwareParagraph<Content: View>: View {
   @Environment(\.disableParagraphMargins) var disableParagraphMargins
@@ -77,17 +77,14 @@ struct Article: View {
           Slipstream.Link(URL(string: destination)) {
             context.recurse()
           }
-          .textColor(.blue, darkness: 700)
+          .textColor(.link, darkness: 700)
           .fontWeight(600)
           .underline(condition: .hover)
         } else {
           context.recurse()
         }
       case is Markdown.ThematicBreak:
-        Divider()
-          .margin(.bottom, sectionMargin)
-          .border(.init(.gray, darkness: 200), width: 1, edges: .top)
-          .border(.white, width: 1, edges: .bottom)
+        HorizontalRule()
       case is Markdown.LineBreak:
         Linebreak()
       case is Markdown.BlockQuote:
