@@ -10,7 +10,7 @@ struct Contact: View {
       description: "Jeff Verkoeyen is best reached by email at jverkoey@gmail.com."
     ) {
       NarrowContainer {
-        HStack {
+        ResponsiveStack {
           Link(URL(string: "http://threads.net/@featherless")) {
             HStack(spacing: 8) {
               Image(URL(string: "/gfx/threads.svg"))
@@ -27,7 +27,9 @@ struct Contact: View {
             .fontWeight(500)
             .underline(condition: .hover)
         }
+        .alignItems(.center)
         .justifyContent(.evenly)
+        .flexGap(.y, width: 16)
         .margin(.bottom, 32)
       }
       .textColor(.zinc, darkness: 900)
