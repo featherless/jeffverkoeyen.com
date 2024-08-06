@@ -93,6 +93,7 @@ iOS foundation of what became publicly known as
         .alignItems(.center)
         .margin(.vertical, 16)
       }
+      .padding(.horizontal, 16)
       .padding(.top, 8)
     }
   }
