@@ -113,15 +113,15 @@ one of the industry’s most well received, stable, and polished v1 apps to date
 join what became Google’s internal "iOS mafia", a crew of whom many were still at Google more than a
 decade later, and many continued to lead critical iOS efforts across the company.
 
-As one of the team’s most experienced UX/UI engineers, Jeff worked closely with design and
-engineering to build a set of modular UI components that would go on to form the
-foundation of the company’s iOS apps, eventually becoming a core part of what is now
-publicly known as [Material design](http://material.io).
-
 > Jeff not only designed and implemented a large chunk of the Maps UI, but he was also a key
 > player in doing code reviews for the other members of the team. Basically any change to the
 > UI has Jeff's name on it as either the implementor or the reviewer.    
 > \\- Leadership feedback, 2012
+
+As one of the team’s most experienced UX/UI engineers, Jeff worked closely with design and
+engineering to build a set of modular UI components that would go on to form the
+foundation of the company’s iOS apps, eventually becoming a core part of what is now
+publicly known as [Material design](http://material.io).
 
 ### Related press
 
