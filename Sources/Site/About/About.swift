@@ -95,21 +95,21 @@ by the quality of its documentation.
 
 In 2012 Jeff found himself in a room with [Vic Gundotra](https://en.wikipedia.org/wiki/Vic_Gundotra)
 and [Bradley Horowitz](https://en.wikipedia.org/wiki/Bradley_Horowitz). Google+ had just spun up,
-and Jeff became one of the few Facebook engineers that left to join Google at the time (most were
-doing the opposite). After one month on the Google+ iPad project, and another few months on the
-Google+ Games SDK, Apple announced that they were going to stop using Google Maps for their
-native Maps app.
+and Jeff became one of the few engineers that [left Facebook to join Google](https://www.theverge.com/2011/9/27/2453784/facebook-engineer-hits-the-road-for-google-over-ipad-app)
+at the time (most were doing the opposite). After one month on the Google+ iPad project, and
+another few months on the Google+ Games SDK, [Apple announced](https://www.theguardian.com/technology/2012/may/11/apple-maps-io6-google)
+that they were going to stop using Google Maps for their native Maps app.
 
 Within a week, Jeff found and joined the team that would end up launching six months later
-one of the industry’s most well received, stable, and polished v1 apps to date: Google Maps
-for iOS. He was lucky to join what became Google’s “iOS Mafia”, a crew of whom many are still
-at Google more than a decade later, and most continuing to lead critical iOS efforts across
-the company.
+one of the industry’s most well received, stable, and polished v1 apps to date:
+[Google Maps for iOS](https://apps.apple.com/us/app/google-maps/id585027354). He was lucky to
+join what became Google’s internal "iOS mafia", a crew of whom many were still at Google more than a
+decade later, and many continued to lead critical iOS efforts across the company.
 
 As one of the team’s most experienced UX/UI engineers, Jeff worked closely with design and
 engineering to build a set of modular UI components that would go on to form the
 foundation of the company’s iOS apps, eventually becoming a core part of what is now
-publicly known as Material design.
+publicly known as [Material design](http://material.io).
 
 > Jeff not only designed and implemented a large chunk of the Maps UI, but he was also a key
 > player in doing code reviews for the other members of the team. Basically any change to the
