@@ -53,11 +53,17 @@ iOS foundation of what became publicly known as
           .margin(.vertical, 8)
 
         HStack(spacing: 16) {
-          VStack {
+          VStack(spacing: 8) {
             HStack(alignment: .baseline, spacing: 16) {
               Link("Mobile App of the Year", destination: URL(string: "https://techcrunch.com/events/crunchies-2012/winners/"))
                 .underline(condition: .hover)
               Small("Crunchies 2012")
+                .textColor(.text, darkness: 500)
+            }
+            HStack(alignment: .baseline, spacing: 16) {
+              Link("Best User Experience", destination: URL(string: "https://www.webbyawards.com/press/press-releases/the-17th-annual-webby-award-winners-announced/"))
+                .underline(condition: .hover)
+              Small("Webby Awards 2013")
                 .textColor(.text, darkness: 500)
             }
           }
