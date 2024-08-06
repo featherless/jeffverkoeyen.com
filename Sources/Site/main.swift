@@ -6,9 +6,20 @@ let projectRootURL = URL(filePath: #filePath)
   .deletingLastPathComponent()
   .deletingLastPathComponent()
 let sourceURL = projectRootURL.appending(path: ".src")
+let siteURL = projectRootURL.appending(path: "site")
 
 if !FileManager.default.fileExists(atPath: sourceURL.absoluteString) {
   try FileManager.default.createDirectory(at: sourceURL, withIntermediateDirectories: true)
+}
+
+let sitemap: [String: any View] = [
+  "index.html": Home(),
+  "about/index.html": About(),
+]
+
+for (path, view) in sitemap {
+  let output = try "<!DOCTYPE html>\n" + renderHTML(view)
+  try output.write(to: siteURL.appending(path: path), atomically: true, encoding: .utf8)
 }
 
 try """
@@ -16,7 +27,11 @@ try """
 module.exports = {
   content: ["./**/*.html"],
   theme: {
-    extend: {},
+    extend: {
+      boxShadow: {
+        'puck': '0 0 4px 0 #0003,0 2px 0 0 #0000001a' 
+      }
+    },
     fontFamily: {
       'rounded': ['ui-rounded', '-apple-system', 'system-ui', 'BlinkMacSystemFont', '"Segoe UI"', 'Roboto', '"Helvetica Neue"', 'Arial', 'sans-serif']
     },
@@ -45,9 +60,6 @@ try """
   atomically: true,
   encoding: .utf8
 )
-
-let output = try "<!DOCTYPE html>\n" + renderHTML(Home())
-try output.write(to: projectRootURL.appending(path: "site/index.html"), atomically: true, encoding: .utf8)
 
 let process = Process()
 let pipe = Pipe()

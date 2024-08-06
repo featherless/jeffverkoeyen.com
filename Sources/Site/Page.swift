@@ -3,15 +3,22 @@ import Foundation
 import Slipstream
 
 struct Page<Content: View>: View {
-  init(title: String? = nil, description: String, content: @escaping () -> Content) {
+  init(
+    path: String,
+    title: String? = nil,
+    description: String,
+    @ViewBuilder content: @escaping () -> Content
+  ) {
+    self.path = path
     self.title = title
     self.description = description
     self.content = content
   }
 
+  private let path: String
   private let title: String?
   private let description: String
-  private let content: () -> Content
+  @ViewBuilder private let content: () -> Content
 
   var body: some View {
     HTML {
@@ -32,8 +39,21 @@ struct Page<Content: View>: View {
       Body {
         content()
       }
+      .background(.gray, darkness: 100)
       .antialiased()
     }
     .language("en")
+    .environment(\.path, path)
+  }
+}
+
+private struct PathEnvironmentKey: EnvironmentKey {
+  static let defaultValue: String = "/"
+}
+
+extension EnvironmentValues {
+  var path: String {
+    get { self[PathEnvironmentKey.self] }
+    set { self[PathEnvironmentKey.self] = newValue }
   }
 }
