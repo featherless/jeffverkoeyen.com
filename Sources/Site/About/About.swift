@@ -27,6 +27,7 @@ struct About: View {
               .fontSize(.extraSmall)
               .fontSize(.small, condition: .desktop)
               .textColor(.zinc, darkness: 500)
+              .textAlignment(.right)
           }
           .alignItems(.end)
           .float(.right)
