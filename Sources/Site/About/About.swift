@@ -54,7 +54,7 @@ and was a vocal champion for building
 Jeff's relentless pursuit of quality-first software design empowered Google's iOS community
 to tune product UX to people's needs and expectations on iOS.
 
-## Related press
+### Related press
 
 - [Much-needed Gmail redesign greatly simplifies settings on iOS](https://9to5google.com/2022/10/17/gmail-settings-redesign/) — 9to5Google
 - [Google will stop trying to make its iOS apps look like Android apps](https://www.engadget.com/google-material-design-uikit-171651054.html) — Engadget, also reported by [The Verge](https://www.theverge.com/2021/10/12/22722130/google-ios-app-material-design-components-uikit), [AppleInsider](https://appleinsider.com/articles/21/10/12/google-dropping-material-design-in-ios-to-make-iphone-apps-look-more-like-they-should), [MacRumors](https://www.macrumors.com/2021/10/11/google-apps-for-ios-to-switch-to-uikit/)
@@ -65,7 +65,7 @@ Jeff quit Google in 2024. Stay tuned :)
 
 ---
 
-### Facebook iOS, Three20, Nimbus, and Google Maps for iOS
+## Facebook iOS, Three20, Nimbus, Google Maps for iOS
 
 Prior to Google, Jeff was engineer #3 on Facebook's iOS engineering team. Jeff took
 ownership of the most popular open source iOS project at the time, [Three20](http://github.com/facebookarchive/three20).
@@ -100,7 +100,7 @@ publicly known as [Material design](http://material.io).
 > UI has Jeff's name on it as either the implementor or the reviewer.    
 > \\- Leadership feedback, 2012
 
-## Related press
+### Related press
 
 - [Google Maps is now available for iPhone](https://blog.google/products/maps/google-maps-is-now-available-for-iphone/) — Google, 2012
 - [Google Maps for iPhone](https://daringfireball.net/2012/12/google_maps_iphone) — Daring Fireball, 2012
@@ -118,7 +118,7 @@ publicly known as [Material design](http://material.io).
           Article("""
 ---
 
-### Family and travel
+## Family and travel
 
 Jeff lives in [Montecito](https://santabarbaraca.com/explore-and-discover-santa-barbara/neighborhoods-towns/montecito/)
 with Nina, Eva, and Buddha (the cat).
