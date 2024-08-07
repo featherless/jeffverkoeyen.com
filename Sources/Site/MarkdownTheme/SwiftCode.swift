@@ -161,7 +161,9 @@ private struct Trivia: View {
   var body: some View {
     for triviaPiece in pieces {
       switch triviaPiece {
-      case .lineComment(let comment):
+      case .lineComment(let comment),
+          .blockComment(let comment),
+          .docBlockComment(let comment):
         Comment(string: comment)
       case .newlines(let count):
         Slipstream.Text(String.init(repeating: "\n", count: count))

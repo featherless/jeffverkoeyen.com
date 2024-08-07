@@ -146,6 +146,12 @@ struct Article: View {
       case let html as Markdown.InlineHTML:
         Slipstream.Text(html.plainText)
 
+      case let html as Markdown.HTMLBlock:
+        Div {
+          Slipstream.RawHTML(html.rawHTML)
+        }
+        .margin(.bottom, Double.sectionMargin)
+
       case let link as Markdown.Link:
         if let destination = link.destination {
           Slipstream.Link(URL(string: destination)) {
