@@ -115,8 +115,15 @@ for (index, post) in posts.enumerated() {
     previous: previous
   )
 }
+if let mostRecentPost = posts.last {
+  sitemap["blog/index.html"] = BlogPostView(
+    post: mostRecentPost,
+    next: nil,
+    previous: posts.dropLast().last
+  )
+}
 
-for (path, view) in sitemap {
+for (path, view) in sitemap.sorted(by: { $0.key < $1.key }) {
   print(path)
   let output = try "<!DOCTYPE html>\n" + renderHTML(view)
   let fileURL = siteURL.appending(path: path)
