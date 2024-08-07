@@ -54,8 +54,6 @@ for child in mirror.children {
 }
 ```
 
-![Swift Playground output](/content/images/2015/10/Screen-Shot-2015-10-17-at-2-24-21-PM.png)
-
 ## Putting it all together
 
 Rather than create a Mirror every time we want to enumerate a tuple, let's build a helper function that turns tuples into enumerable types.

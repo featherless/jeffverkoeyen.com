@@ -61,7 +61,7 @@ Next we define the logic that will advance the iterator on each call of the gene
 
 - `iterator`'s nil state allows us to return self.packet initially.
 - Each subsequent call advances `iterator` with MIDIPacketNext.
-- MIDIPacketNext accepts and returns an [UnsafePointer]. [withUnsafePointer] is a helpful way to transform between MIDIPacket and UnsafePointer<MIDIPacket>, avoiding the need to initialize an [UnsafeMutablePointer] ourselves.
+- MIDIPacketNext accepts and returns an [UnsafePointer]. [withUnsafePointer] is a helpful way to transform between `MIDIPacket` and `UnsafePointer<MIDIPacket>`, avoiding the need to initialize an [UnsafeMutablePointer] ourselves.
 - The `$0` is [shorthand for the closure's first argument][closure-shorthand].
 - The enclosing `()` for the anyGenerator function has been removed because they're not needed when the only argument is a closure.
 

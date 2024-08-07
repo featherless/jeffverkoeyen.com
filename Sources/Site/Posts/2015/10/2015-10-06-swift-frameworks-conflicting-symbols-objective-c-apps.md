@@ -87,5 +87,5 @@ For example, `NSClassFromString(@"Framework2.SomeManager")` allows you to instan
 
 ### References
 
-<blockquote class="twitter-tweet" data-conversation="none" lang="en"><p lang="en" dir="ltr"><a href="https://twitter.com/featherless">@featherless</a> You can namespace classes in Objective-C only with @ objc(ABCMyClass)</p>&mdash; Scott Berrevoets (@ScottBerrevoets) <a href="https://twitter.com/ScottBerrevoets/status/651460908363857920">October 6, 2015</a></blockquote>
-<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+> [@featherless](https://twitter.com/featherless): You can namespace classes in Objective-C only with @ objc(ABCMyClass)    
+> — Scott Berrevoets ([@ScottBerrevoets](https://twitter.com/ScottBerrevoets)) [October 6, 2015](https://twitter.com/ScottBerrevoets/status/651460908363857920)

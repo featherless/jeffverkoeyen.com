@@ -117,6 +117,7 @@ for (index, post) in posts.enumerated() {
 }
 
 for (path, view) in sitemap {
+  print(path)
   let output = try "<!DOCTYPE html>\n" + renderHTML(view)
   let fileURL = siteURL.appending(path: path)
   let folderURL = fileURL.deletingLastPathComponent()

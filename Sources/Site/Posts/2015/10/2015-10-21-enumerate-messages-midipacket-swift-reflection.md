@@ -8,13 +8,9 @@ A [MIDIPacket] is a representation of one or more MIDI messages. Most messages c
 
 > [Learn more about the MIDI specification](http://www.midi.org/techspecs/midimessages.php).
 
-Consider the following representation of a MIDIPacket:
+Consider a packet with a length of 10 bytes that contains four distinct MIDI messages.
 
-![MIDIPacket](/content/images/2015/10/midipacket--1-.svg)
-
-The packet has a length of 10 bytes and contains four distinct MIDI messages.
-
-Given the above example of a packet, Swift's MIDIPacket definition is intriguing:
+Given this packet, Swift's MIDIPacket definition is intriguing:
 
 ```language-swift
 // Extracted from the CoreMIDI Swift framework

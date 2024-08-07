@@ -36,7 +36,10 @@ struct SwiftCode: View {
         Literal(string: token.text)
       case .prefixOperator,
           .binaryOperator,
-          .postfixOperator:
+          .postfixOperator,
+          .stringSegment,
+          .wildcard,
+          .dollarIdentifier:
         Slipstream.Text(token.text)
       case .stringQuote, .singleQuote:
         Quotes(string: token.text)
@@ -108,7 +111,7 @@ private struct Identifier: View {
       span
         .textColor(.palette(.purple, darkness: 600))
         .textColor(.palette(.purple, darkness: 400), condition: .dark)
-    case \FunctionParameterSyntax.firstName,
+    case \FunctionParameterSyntax.secondName,
       \LabeledExprSyntax.label:
       span
         .textColor(.palette(.purple, darkness: 500))
@@ -118,14 +121,31 @@ private struct Identifier: View {
         .textColor(.palette(.orange, darkness: 400), condition: .dark)
     case \IdentifierPatternSyntax.identifier,
       \TypeAliasDeclSyntax.name,
-      \ClassDeclSyntax.name:
+      \ClassDeclSyntax.name,
+      \EnumDeclSyntax.name,
+      \EnumCaseElementSyntax.name:
       span
         .textColor(.palette(.blue, darkness: 700))
         .textColor(.palette(.blue, darkness: 300), condition: .dark)
-    case .none, \ObjCSelectorPieceSyntax.name:
+    case .none,
+      \FunctionParameterSyntax.firstName,
+      \EnumCaseParameterSyntax.firstName,
+      \ObjCSelectorPieceSyntax.name,
+      \MacroExpansionExprSyntax.macroName,
+      \MacroExpansionDeclSyntax.macroName,
+      \ImportPathComponentSyntax.name:
       span
         .textColor(.palette(.zinc, darkness: 950))
         .textColor(.palette(.zinc, darkness: 50), condition: .dark)
+    case \EditorPlaceholderExprSyntax.placeholder:
+      span
+        .textColor(.palette(.zinc, darkness: 700))
+        .textColor(.palette(.zinc, darkness: 300), condition: .dark)
+        .padding(.horizontal, 4)
+        .padding(.vertical, 2)
+        .cornerRadius(.medium)
+        .background(.palette(.zinc, darkness: 200))
+        .background(.palette(.zinc, darkness: 800), condition: .dark)
     default:
       let _ = print("Unstyled key path:", keyPathInParent!, string)
       span

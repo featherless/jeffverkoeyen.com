@@ -100,6 +100,12 @@ struct Article: View {
         }
         .bold()
 
+      case is Markdown.Emphasis:
+        Span {
+          context.recurse()
+        }
+        .italic()
+
       case is Markdown.OrderedList:
         Slipstream.List(ordered: true) {
           context.recurse()
@@ -122,6 +128,15 @@ struct Article: View {
         Slipstream.ListItem {
           context.recurse()
         }
+
+      case let image as Markdown.Image:
+        if let destination = image.source {
+          Slipstream.Image(URL(string: destination))
+            .accessibilityLabel(image.title ?? "")
+        }
+
+      case let html as Markdown.InlineHTML:
+        Slipstream.Text(html.plainText)
 
       case let link as Markdown.Link:
         if let destination = link.destination {
