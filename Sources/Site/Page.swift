@@ -6,7 +6,7 @@ struct Page<Content: View>: View {
   init(
     path: String,
     title: String? = nil,
-    description: String,
+    description: String? = nil,
     @ViewBuilder content: @escaping () -> Content
   ) {
     self.path = path
@@ -17,7 +17,7 @@ struct Page<Content: View>: View {
 
   private let path: String
   private let title: String?
-  private let description: String
+  private let description: String?
   @ViewBuilder private let content: () -> Content
 
   var body: some View {
@@ -30,7 +30,9 @@ struct Page<Content: View>: View {
           Title("featherless software design")
         }
         Viewport.mobileFriendly
-        Meta(.description, content: description)
+        if let description {
+          Meta(.description, content: description)
+        }
         Meta(.generator, content: "Slipstream")
         Meta(.author, content: "Jeff Verkoeyen")
         Preload(URL(string: "/gfx/feather.svg"), as: .image)

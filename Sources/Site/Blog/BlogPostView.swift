@@ -11,8 +11,7 @@ struct BlogPostView: View {
   var body: some View {
     Page(
       path: post.url.path(),
-      title: post.title,
-      description: "TODO"
+      title: post.title
     ) {
       MediumContainer {
         navigation
