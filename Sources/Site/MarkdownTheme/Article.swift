@@ -70,6 +70,7 @@ struct Article: View {
           .fontSize(.extraExtraExtraLarge)
           .bold()
           .margin(.bottom, 8)
+          .fontDesign("rounded")
         case 2:
           Slipstream.Heading(level: heading.level) {
             context.recurse()
