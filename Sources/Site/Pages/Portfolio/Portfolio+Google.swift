@@ -52,11 +52,12 @@ extension Portfolio {
         MediumContainer {
           Div {
             H2 {
-              HStack(alignment: .baseline, spacing: 16) {
+              HStack(alignment: .baseline, spacing: 12) {
                 Span("Google")
                 Small("Design leadership for Apple platforms")
                   .textColor(.text, darkness: 700)
                   .textColor(.text, darkness: 300, condition: .dark)
+                  .fontLeading(.tight)
               }
             }
             .portfolioSectionHeader()

@@ -5,7 +5,7 @@ import Slipstream
 struct PortfolioSectionHeader<Content: View>: ViewModifier {
   func body(content: Content) -> some View {
     content
-      .fontSize(.extraExtraLarge)
+      .fontSize(.extraLarge)
       .fontSize(.fourXLarge, condition: .desktop)
       .fontDesign("rounded")
   }
