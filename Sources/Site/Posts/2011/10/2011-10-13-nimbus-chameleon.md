@@ -65,7 +65,7 @@ We then simply implement the chameleonSkinDidChange method and respond accordi
 
 I built this to scratch my own itch. From my work at Facebook and now at Google I’ve been finding that a large amount of my time has been wasted waiting for builds to compile, even when I just need to make a change as simple as “make that text blue rather than black”. This frustration is surely echoed by anyone who has had the unfortunate task of doing a clean build of Three20. Thanks to the way the Nimbus framework is set up, anyone can use Chameleon in their own project simply by adding the Nimbus Core and CSS components _and nothing else!_ It really brings home the mantra of _“stop compiling, start building”_.
 
-The idea was originally tossed out on the [Nimbus CSS task thread](https://web.archive.org/web/20120103215437/https://github.com/jverkoey/nimbus/issues/22#issuecomment-1953987). I’ll have to message Rog about the fact that I’ve just gone ahead and built this! That’s what I get for waking up early on the weekend and working on this before Canadian turkey day when I should have been running errands.
+The idea was originally tossed out on the [Nimbus CSS task thread](https://github.com/jverkoey/nimbus/issues/22#issuecomment-1953987). I’ll have to message Rog about the fact that I’ve just gone ahead and built this! That’s what I get for waking up early on the weekend and working on this before Canadian turkey day when I should have been running errands.
 
 ## Supported CSS properties as of Oct 13, 2011
 
@@ -125,4 +125,4 @@ Hopefully by the end of this week. I haven’t moved up to the city yet so I’m
 
 If I don’t get it out tomorrow night though then it might have to wait until next week because I’m planning to go to the Treasure Island music festival this weekend. I haven’t been to live music in way too long.
 
-Either way, look forward to getting your hands on this code shortly! As always it will be Apache 2.0 licensed. If you have any questions about Chameleon or Nimbus or why the hell I’d be in South Bay feel free to shoot me an email or @reply me on twitter: [@featherless](https://web.archive.org/web/20120103215437/http://twitter.com/featherless).
+Either way, look forward to getting your hands on this code shortly! As always it will be Apache 2.0 licensed.
