@@ -11,10 +11,13 @@ let package = Package(
   ],
   dependencies: [
     .package(url: "https://github.com/jverkoey/slipstream.git", branch: "main"),
+    .package(url: "https://github.com/swiftlang/swift-syntax.git", from: "510.0.3"),
   ],
   targets: [
     .executableTarget(name: "Site", dependencies: [
-      .product(name: "Slipstream", package: "slipstream")
+      .product(name: "Slipstream", package: "slipstream"),
+      .product(name: "SwiftSyntax", package: "swift-syntax"),
+      .product(name: "SwiftParser", package: "swift-syntax"),
     ]),
   ]
 )

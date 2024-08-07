@@ -2,6 +2,8 @@ import Foundation
 
 import Markdown
 import Slipstream
+import SwiftParser
+import SwiftSyntax
 
 private struct ContextAwareParagraph<Content: View>: View {
   @Environment(\.disableParagraphMargins) var disableParagraphMargins
@@ -26,8 +28,41 @@ struct Article: View {
       switch node {
       case let text as Markdown.Text:
         Slipstream.Text(text.string)
+
+      case let codeBlock as Markdown.CodeBlock:
+        Slipstream.Preformatted {
+          SwiftCode(code: codeBlock.code)
+        }
+        .textColor(.zinc, darkness: 50)
+        .padding(16)
+        .border(.init(.zinc, darkness: 300))
+        .border(.init(.zinc, darkness: 700), condition: .dark)
+        .cornerRadius(.medium)
+        .margin(.bottom, Double.sectionMargin)
+        .fontDesign(.mono)
+        .background(.black)
+        .fontSize(.small)
+        .modifier(ClassModifier(add: "overflow-scroll"))
+
+      case let inlineCode as Markdown.InlineCode:
+        Slipstream.Code {
+          SwiftCode(code: inlineCode.code)
+        }
+        .padding(.horizontal, 6)
+        .padding(.vertical, 4)
+        .background(.zinc, darkness: 800)
+        .fontWeight(500)
+        .cornerRadius(.medium)
+
       case let heading as Markdown.Heading:
         switch heading.level {
+        case 1:
+          Slipstream.Heading(level: heading.level) {
+            context.recurse()
+          }
+          .fontSize(.extraExtraExtraLarge)
+          .bold()
+          .margin(.bottom, 8)
         case 2:
           Slipstream.Heading(level: heading.level) {
             context.recurse()
@@ -46,10 +81,18 @@ struct Article: View {
             context.recurse()
           }
         }
+
       case is Markdown.Paragraph:
         ContextAwareParagraph {
           context.recurse()
         }
+
+      case is Markdown.Strong:
+        Span {
+          context.recurse()
+        }
+        .bold()
+
       case is Markdown.OrderedList:
         Slipstream.List(ordered: true) {
           context.recurse()
@@ -58,6 +101,7 @@ struct Article: View {
         .listStyle(.decimal)
         .padding(.left, 20)
         .margin(.bottom, Double.sectionMargin)
+
       case is Markdown.UnorderedList:
         Slipstream.List(ordered: false) {
           context.recurse()
@@ -66,10 +110,12 @@ struct Article: View {
         .listStyle(.disc)
         .padding(.left, 20)
         .margin(.bottom, Double.sectionMargin)
+
       case is Markdown.ListItem:
         Slipstream.ListItem {
           context.recurse()
         }
+
       case let link as Markdown.Link:
         if let destination = link.destination {
           Slipstream.Link(URL(string: destination)) {
@@ -82,10 +128,13 @@ struct Article: View {
         } else {
           context.recurse()
         }
+
       case is Markdown.ThematicBreak:
         HorizontalRule()
+
       case is Markdown.LineBreak:
         Linebreak()
+
       case is Markdown.BlockQuote:
         Blockquote {
           context.recurse()
@@ -94,9 +143,12 @@ struct Article: View {
         .border(.palette(.zinc, darkness: 500), width: 1, edges: .left, condition: .dark)
         .padding(.horizontal, 16)
         .padding(.horizontal, 24, condition: .desktop)
+        .margin(.bottom, Double.sectionMargin)
         .italic()
+
       case is Markdown.SoftBreak:
         Slipstream.Text("\n")
+
       default:
         let _ = print(node)
         context.recurse()
@@ -117,3 +169,4 @@ extension EnvironmentValues {
     set { self[DisableParagraphMarginsEnvironmentKey.self] = newValue }
   }
 }
+

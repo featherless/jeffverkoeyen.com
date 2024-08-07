@@ -1,5 +1,5 @@
 {
-  "originHash" : "8419bb37e6c64d7f6c280f1c951af96cd992524c41c11e5413b2ba126152f3dd",
+  "originHash" : "12f93e0f9075c0b76ce2e8570f802b4766d27f904550b44cfa571500619d2d51",
   "pins" : [
     {
       "identity" : "slipstream",
@@ -7,7 +7,7 @@
       "location" : "https://github.com/jverkoey/slipstream.git",
       "state" : {
         "branch" : "main",
-        "revision" : "940f82354ff46b3c63df5e4a5d4e5934c1d5b1a6"
+        "revision" : "7ed2c586ba6a754df9c52c22a61e2792edfffddc"
       }
     },
     {
@@ -26,6 +26,15 @@
       "state" : {
         "branch" : "main",
         "revision" : "d21714073e0d16ba78eebdf36724863afc36871d"
+      }
+    },
+    {
+      "identity" : "swift-syntax",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/swiftlang/swift-syntax.git",
+      "state" : {
+        "revision" : "2bc86522d115234d1f588efe2bcb4ce4be8f8b82",
+        "version" : "510.0.3"
       }
     },
     {

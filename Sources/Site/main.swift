@@ -1,23 +1,82 @@
 import Foundation
 import Slipstream
 
-let projectRootURL = URL(filePath: #filePath)
-  .deletingLastPathComponent()
+let thisFileURL = URL(filePath: #filePath)
+let thisFolderURL = thisFileURL.deletingLastPathComponent()
+
+let projectRootURL = thisFolderURL
   .deletingLastPathComponent()
   .deletingLastPathComponent()
 let sourceURL = projectRootURL.appending(path: ".src")
 let siteURL = projectRootURL.appending(path: "site")
+guard let blogURLPrefix = URL(string: "blog/") else {
+  fatalError()
+}
+let postsURL = thisFolderURL.appending(path: "Posts")
 
 if !FileManager.default.fileExists(atPath: sourceURL.absoluteString) {
   try FileManager.default.createDirectory(at: sourceURL, withIntermediateDirectories: true)
 }
 
-let sitemap: [String: any View] = [
+var sitemap: [String: any View] = [
   "index.html": Home(),
   "about/index.html": About(),
   "contact/index.html": Contact(),
   "portfolio/index.html": Portfolio(),
 ]
+
+func allBlogFiles(in directory: URL?) -> [URL] {
+  guard let directory else {
+    return []
+  }
+  var markdownFiles: [URL] = []
+  guard let enumerator = FileManager.default.enumerator(at: directory, includingPropertiesForKeys: nil) else {
+    return markdownFiles
+  }
+  for case let fileURL as URL in enumerator {
+    if fileURL.pathExtension == "md" {
+      markdownFiles.append(fileURL)
+    }
+  }
+  return markdownFiles
+}
+
+for file in allBlogFiles(in: postsURL) {
+  let datedSlug = file.deletingPathExtension().lastPathComponent
+  var parts = datedSlug.components(separatedBy: "-")
+  guard parts.count > 3 else {
+    print("Malformed slug: ", file)
+    continue
+  }
+  guard let year = Int(parts[0]),
+        let month = Int(parts[1]),
+        let day = Int(parts[2]) else {
+    print("Malformed slug date: ", file)
+    continue
+  }
+  let components = DateComponents(calendar: .current, year: year, month: month, day: day)
+  guard let date = Calendar.current.date(from: components) else {
+    print("Invalid date components: \(components)")
+    continue
+  }
+
+  parts.removeFirst(3)
+  let slug = parts.joined(separator: "-")
+
+  let postPath = blogURLPrefix
+    .appending(components: String(format: "%04d", year), String(format: "%02d", month), String(format: "%02d", day))
+    .appending(path: slug)
+    .appending(path: "index")
+    .appendingPathExtension("html")
+
+  let postContent = try String(contentsOf: file)
+
+  sitemap[postPath.path()] = BlogPost(
+    path: postPath.deletingLastPathComponent().path(),
+    markdown: postContent,
+    date: date
+  )
+}
 
 for (path, view) in sitemap {
   let output = try "<!DOCTYPE html>\n" + renderHTML(view)
