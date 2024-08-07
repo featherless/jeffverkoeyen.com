@@ -112,7 +112,7 @@ struct Article: View {
             .environment(\.disableParagraphMargins, true)
         }
         .listStyle(.decimal)
-        .padding(.left, 20)
+        .padding(.left, 32)
         .margin(.bottom, Double.sectionMargin)
 
       case is Markdown.UnorderedList:
