@@ -140,6 +140,7 @@ struct Article: View {
               .border(.init(.zinc, darkness: 700), width: 4, condition: .dark)
               .cornerRadius(.extraExtraLarge)
               .modifier(ClassModifier(add: "shadow-puck"))
+              .margin(.horizontal, .auto)
           }
           .padding(.horizontal, 16)
           .margin(.bottom, Double.sectionMargin)
