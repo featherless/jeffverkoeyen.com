@@ -20,11 +20,15 @@ private struct ContextAwareParagraph<Content: View>: View {
 
 struct Article: View {
   init(_ text: String) {
-    self.text = text
+    self.document = Document(parsing: text)
+  }
+
+  init(_ document: Document) {
+    self.document = document
   }
 
   var body: some View {
-    MarkdownText(text) { node, context in
+    MarkdownText(document) { node, context in
       switch node {
       case let text as Markdown.Text:
         Slipstream.Text(text.string)
@@ -159,7 +163,7 @@ struct Article: View {
     }
   }
 
-  private let text: String
+  private let document: Document
 }
 
 private struct DisableParagraphMarginsEnvironmentKey: EnvironmentKey {

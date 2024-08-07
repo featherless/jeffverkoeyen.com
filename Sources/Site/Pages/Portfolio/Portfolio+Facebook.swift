@@ -30,7 +30,7 @@ iPad and the iPhone.
               .margin(.bottom, Double.sectionMargin, condition: .desktop)
           }
         }
-        .padding(.horizontal, 16)
+        .padding(.horizontal, 8)
         .padding(.vertical, 32)
       }
       .border(.init(.blue, darkness: 100), edges: .top)

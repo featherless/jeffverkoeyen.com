@@ -86,7 +86,7 @@ If you've used a Google product on Apple platforms, you've used code owned by Je
             .modifier(ClassModifier(add: "flex-wrap"))
           }
         }
-        .padding(.horizontal, 16)
+        .padding(.horizontal, 8)
         .padding(.vertical, 32)
       }
     }

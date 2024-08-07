@@ -46,7 +46,7 @@ projects on GitHub](https://github.com/EvanLi/Github-Ranking/blob/master/Top100/
             }
           }
         }
-        .padding(.horizontal, 16)
+        .padding(.horizontal, 8)
         .padding(.vertical, 32)
       }
       .border(.init(.orange, darkness: 100), edges: .top)

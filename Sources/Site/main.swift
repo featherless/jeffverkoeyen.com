@@ -1,4 +1,6 @@
 import Foundation
+
+import Markdown
 import Slipstream
 
 let thisFileURL = URL(filePath: #filePath)
@@ -41,15 +43,18 @@ func allBlogFiles(in directory: URL?) -> [URL] {
   return markdownFiles.sorted { $0.path() < $1.path() }
 }
 
-struct BlogPostMetadata {
+struct BlogPost {
   let fileURL: URL
   let slug: String
   let outputURL: URL
   let url: URL
   let date: Date
+  let title: String?
+  let content: String
+  let document: Document
 }
 
-func postURL(filePath file: URL) -> BlogPostMetadata? {
+func postURL(filePath file: URL) throws -> BlogPost? {
   let datedSlug = file.deletingPathExtension().lastPathComponent
   var parts = datedSlug.components(separatedBy: "-")
   guard parts.count > 3 else {
@@ -71,31 +76,41 @@ func postURL(filePath file: URL) -> BlogPostMetadata? {
   parts.removeFirst(3)
   let slug = parts.joined(separator: "-")
 
+  let postContent = try String(contentsOf: file)
+  let document = Document(parsing: postContent)
+
+  let documentHeading = (document.children.first { node in
+    if let heading = node as? Markdown.Heading,
+       heading.level == 1 {
+      return true
+    }
+    return false
+  } as? Markdown.Heading)?.plainText
+
   let outputURL = blogURLPrefix
     .appending(components: String(format: "%04d", year), String(format: "%02d", month), String(format: "%02d", day))
     .appending(path: slug)
     .appending(path: "index")
     .appendingPathExtension("html")
-  return BlogPostMetadata(
+  return BlogPost(
     fileURL: file,
     slug: slug,
     outputURL: outputURL,
     url: outputURL.deletingLastPathComponent(),
-    date: date
+    date: date,
+    title: documentHeading,
+    content: postContent,
+    document: document
   )
 }
 
-let posts = allBlogFiles(in: postsURL).compactMap { postURL(filePath: $0) }
-for (index, metadata) in posts.enumerated() {
+let posts = try allBlogFiles(in: postsURL).compactMap { try postURL(filePath: $0) }
+for (index, post) in posts.enumerated() {
   let previous = index > 0 ? posts[index - 1] : nil
   let next = (index < posts.count - 1) ? posts[index + 1] : nil
 
-  let postContent = try String(contentsOf: metadata.fileURL)
-
-  sitemap[metadata.outputURL.path()] = BlogPost(
-    path: metadata.url.path(),
-    markdown: postContent,
-    date: metadata.date,
+  sitemap[post.outputURL.path()] = BlogPostView(
+    post: post,
     next: next,
     previous: previous
   )
