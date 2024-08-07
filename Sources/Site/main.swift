@@ -38,43 +38,66 @@ func allBlogFiles(in directory: URL?) -> [URL] {
       markdownFiles.append(fileURL)
     }
   }
-  return markdownFiles
+  return markdownFiles.sorted { $0.path() < $1.path() }
 }
 
-for file in allBlogFiles(in: postsURL) {
+struct BlogPostMetadata {
+  let fileURL: URL
+  let slug: String
+  let outputURL: URL
+  let url: URL
+  let date: Date
+}
+
+func postURL(filePath file: URL) -> BlogPostMetadata? {
   let datedSlug = file.deletingPathExtension().lastPathComponent
   var parts = datedSlug.components(separatedBy: "-")
   guard parts.count > 3 else {
     print("Malformed slug: ", file)
-    continue
+    return nil
   }
   guard let year = Int(parts[0]),
         let month = Int(parts[1]),
         let day = Int(parts[2]) else {
     print("Malformed slug date: ", file)
-    continue
+    return nil
   }
   let components = DateComponents(calendar: .current, year: year, month: month, day: day)
   guard let date = Calendar.current.date(from: components) else {
     print("Invalid date components: \(components)")
-    continue
+    return nil
   }
 
   parts.removeFirst(3)
   let slug = parts.joined(separator: "-")
 
-  let postPath = blogURLPrefix
+  let outputURL = blogURLPrefix
     .appending(components: String(format: "%04d", year), String(format: "%02d", month), String(format: "%02d", day))
     .appending(path: slug)
     .appending(path: "index")
     .appendingPathExtension("html")
-
-  let postContent = try String(contentsOf: file)
-
-  sitemap[postPath.path()] = BlogPost(
-    path: postPath.deletingLastPathComponent().path(),
-    markdown: postContent,
+  return BlogPostMetadata(
+    fileURL: file,
+    slug: slug,
+    outputURL: outputURL,
+    url: outputURL.deletingLastPathComponent(),
     date: date
+  )
+}
+
+let posts = allBlogFiles(in: postsURL).compactMap { postURL(filePath: $0) }
+for (index, metadata) in posts.enumerated() {
+  let previous = index > 0 ? posts[index - 1] : nil
+  let next = (index < posts.count - 1) ? posts[index + 1] : nil
+
+  let postContent = try String(contentsOf: metadata.fileURL)
+
+  sitemap[metadata.outputURL.path()] = BlogPost(
+    path: metadata.url.path(),
+    markdown: postContent,
+    date: metadata.date,
+    next: next,
+    previous: previous
   )
 }
 

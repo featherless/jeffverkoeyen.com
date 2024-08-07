@@ -7,6 +7,9 @@ struct BlogPost: View {
   let markdown: String
   let date: Date
 
+  let next: BlogPostMetadata?
+  let previous: BlogPostMetadata?
+
   var body: some View {
     Page(
       path: path,
@@ -14,6 +17,29 @@ struct BlogPost: View {
       description: "TODO"
     ) {
       MediumContainer {
+        HStack(spacing: 16) {
+          if let previous {
+            Link("<" + previous.slug, destination: previous.url)
+              .textColor(.link, darkness: 700)
+              .textColor(.link, darkness: 400, condition: .dark)
+              .fontWeight(600)
+              .underline(condition: .hover)
+          } else {
+            Paragraph("No older posts")
+          }
+          if let next {
+            Link(next.slug + " >", destination: next.url)
+              .textColor(.link, darkness: 700)
+              .textColor(.link, darkness: 400, condition: .dark)
+              .fontWeight(600)
+              .underline(condition: .hover)
+          } else {
+            Paragraph("No newer posts")
+          }
+        }
+        .justifyContent(.between)
+        .margin(.bottom, 16)
+
         Paragraph(date.formatted(date: .abbreviated, time: .omitted))
           .subtitleStyle()
         Article(markdown)
