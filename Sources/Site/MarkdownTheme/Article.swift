@@ -39,6 +39,7 @@ struct Article: View {
         }
         .textColor(.zinc, darkness: 950)
         .textColor(.zinc, darkness: 50, condition: .dark)
+        .fontWeight(500)
         .padding(16)
         .border(.init(.zinc, darkness: 300))
         .border(.init(.zinc, darkness: 700), condition: .dark)
