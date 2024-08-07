@@ -8,7 +8,7 @@ for cell in XCUIApplication().cells {
 }
 ```
 
-We'll take the template from [Minimal Swift protocol conformance](http://design.featherless.software/minimal-swift-protocol-conformance/)'s section on "SequenceType" to make XCUIElementQuery conform to SequenceType:
+We'll take the template from [Minimal Swift protocol conformance](/blog/2015/10/28/minimal-swift-protocol-conformance/)'s section on "SequenceType" to make XCUIElementQuery conform to SequenceType:
 
 ```
 extension XCUIElementQuery : SequenceType {

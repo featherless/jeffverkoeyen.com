@@ -82,7 +82,8 @@ private struct Literal: View {
   let string: String
   var body: some View {
     Slipstream.Span(string)
-      .textColor(.yellow, darkness: 400)
+      .textColor(.yellow, darkness: 800)
+      .textColor(.yellow, darkness: 400, condition: .dark)
   }
 }
 

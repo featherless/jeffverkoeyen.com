@@ -73,7 +73,3 @@ extension <# extendedType #> : SequenceType {
 ```
 
 - A collection is a sequence, but a sequence isn't necessarily a collection.
-
-## Protocol missing from this list?
-
-Tweet [@featherless](http://twitter.com/featherless) with a gist to suggest new protocols that can easily be conformed to and it will be added to this list.

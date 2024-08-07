@@ -1,4 +1,4 @@
-# Shared code series: retirement
+# Retirement and shared code
 
 **Creating** shared code is easy. **Retiring** shared code, however, is not.
 
@@ -15,7 +15,7 @@ For this reason, the purpose of this article is to argue that **planning for ret
 
 ---
 
-### Why retirement planning is important for shared code
+## Why retirement planning is important for shared code
 
 I've seen two common outcomes when retirement planning is not part of the software design process: **turnover** and **lock-in**.
 
@@ -25,11 +25,11 @@ I've seen two common outcomes when retirement planning is not part of the softwa
 
 A conscientious software designer aims to mitigate these outcomes by applying effective **retirement strategies** to their shared code.
 
-### Strategies for retirement
+## Strategies for retirement
 
 Retirement strategies play a significant role in the long-term maintainability and velocity of shared code. The successful application of the following strategies requires diligence and great care, but the results can be significant.
 
-#### Strategy: Minimize the public API surface area
+### Strategy: Minimize the public API surface area
 
 Why? Assume that every exposed public API will eventually be retired by something newer.
 
@@ -37,13 +37,13 @@ APIs should be expected to fight for their existence.
 
 One approach to this strategy is to put new APIs through an *API review*. Members of your community would be expected to ask questions that justify the exposure of the new APIs. The goal of this vetting process is to find the minimal API required to solve the set of known problems.
 
-#### Strategy: Aim for dependency-less components
+### Strategy: Aim for dependency-less components
 
 Why? Assume that any dependency will eventually be retired.
 
 Each dependency locks a piece of code into a particular set of assumptions. Dependency-less code bears the least risk of eventual retirement. If dependencies are necessary, create meta components that bind together the dependencies; even if the dependencies are retired, your underlying code will be unaffected.
 
-#### Strategy: Draw hard lines between components
+### Strategy: Draw hard lines between components
 
 Why? It's often far too easy to add cross-component dependencies.
 
@@ -55,7 +55,7 @@ A good example of a hard line is requiring an explicit dependency to be added vi
 
 A bad example of a hard line would be code that can be freely imported from any source.
 
-#### Strategy: Avoid "grab bag" components
+### Strategy: Avoid "grab bag" components
 
 Why? Grab bag components inevitably grow in a difficult-to-control manner.
 
@@ -63,7 +63,7 @@ This happened in Three20, it happened in NimbusKit, it happens with shared iOS c
 
 The recommendation is to simply *not* have a "Core" component. Prefer reasonable code duplication over centralization and reap the long-term benefits of dependency-less components.
 
-### Addendum: when is retirement necessary?
+## Addendum: when is retirement necessary?
 
 Retirement is necessary in any of the following situations:
 
