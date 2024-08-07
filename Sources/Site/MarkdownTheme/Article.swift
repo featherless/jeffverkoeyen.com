@@ -131,8 +131,16 @@ struct Article: View {
 
       case let image as Markdown.Image:
         if let destination = image.source {
-          Slipstream.Image(URL(string: destination))
-            .accessibilityLabel(image.title ?? "")
+          Div {
+            Slipstream.Image(URL(string: destination))
+              .accessibilityLabel(image.title ?? "")
+              .border(.white, width: 4)
+              .border(.init(.zinc, darkness: 700), width: 4, condition: .dark)
+              .cornerRadius(.extraExtraLarge)
+              .modifier(ClassModifier(add: "shadow-puck"))
+          }
+          .padding(.horizontal, 16)
+          .margin(.bottom, Double.sectionMargin)
         }
 
       case let html as Markdown.InlineHTML:
