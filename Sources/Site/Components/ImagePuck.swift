@@ -19,7 +19,7 @@ struct ImagePuck: View {
           .frame(width: 198, height: 198, condition: .desktop)
       }
       .margin(.bottom, 4)
-      Paragraph(caption)
+      Text(caption)
         .fontSize(.extraSmall)
         .fontSize(.small, condition: .desktop)
         .textColor(.text, darkness: 500)

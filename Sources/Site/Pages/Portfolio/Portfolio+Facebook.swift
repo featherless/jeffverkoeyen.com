@@ -10,7 +10,7 @@ extension Portfolio {
           Div {
             H2 {
               HStack(alignment: .baseline, spacing: 8) {
-                Text("Facebook")
+                DOMString("Facebook")
                 Small("for iPad")
                   .textColor(.text, darkness: 700)
                   .textColor(.text, darkness: 300, condition: .dark)
@@ -25,7 +25,7 @@ person with the most knowledge of both Three20 and Facebook's iPhone codebase, h
 was able to quickly and efficiently create a universal app that supported both the
 iPad and the iPhone. 
 """)
-            Paragraph("June 2010 - June 2011")
+            Text("June 2010 - June 2011")
               .subtitleStyle()
               .margin(.bottom, Double.sectionMargin, condition: .desktop)
           }

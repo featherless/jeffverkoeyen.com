@@ -58,7 +58,7 @@ struct Page<Content: View>: View {
                 }
                 .modifier(ClassModifier(add: "cursor-pointer"))
                 VStack(alignment: .end) {
-                  Paragraph("Copyright © 2002-\(Calendar.current.component(.year, from: Date())) Jeff Verkoeyen")
+                  Text("Copyright © 2002-\(Calendar.current.component(.year, from: Date())) Jeff Verkoeyen")
                     .textColor(.text, darkness: 600)
                     .textColor(.text, darkness: 300, condition: .dark)
                 }

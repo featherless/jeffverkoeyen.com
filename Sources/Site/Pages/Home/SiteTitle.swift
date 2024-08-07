@@ -2,8 +2,8 @@ import Slipstream
 
 struct SiteTitle: View {
   var body: some View {
-    Text("featherless")
+    DOMString("featherless")
     Linebreak()
-    Text("software design")
+    DOMString("software design")
   }
 }

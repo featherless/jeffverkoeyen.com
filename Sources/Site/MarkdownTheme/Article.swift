@@ -31,7 +31,7 @@ struct Article: View {
     MarkdownText(document) { node, context in
       switch node {
       case let text as Markdown.Text:
-        Slipstream.Text(text.string)
+        Slipstream.DOMString(text.string)
 
       case let codeBlock as Markdown.CodeBlock:
         Slipstream.Preformatted {
@@ -147,7 +147,7 @@ struct Article: View {
         }
 
       case let html as Markdown.InlineHTML:
-        Slipstream.Text(html.plainText)
+        Slipstream.DOMString(html.plainText)
 
       case let html as Markdown.HTMLBlock:
         Div {
@@ -186,7 +186,7 @@ struct Article: View {
         .italic()
 
       case is Markdown.SoftBreak:
-        Slipstream.Text("\n")
+        Slipstream.DOMString("\n")
 
       default:
         let _ = print(node)

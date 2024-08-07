@@ -14,7 +14,7 @@ private struct AppView: View {
         .cornerRadius(.extraExtraLarge)
         .modifier(ClassModifier(add: "shadow-puck"))
         .margin(.bottom, 4)
-      Paragraph(name)
+      Text(name)
         .fontSize(.small)
         .textColor(.text, darkness: 700)
         .textColor(.text, darkness: 300, condition: .dark)
@@ -73,7 +73,7 @@ Guidelines and the design guidance coming out of Android.
 
 If you've used a Google product on Apple platforms, you've used code owned by Jeff's team.
 """)
-            Paragraph("2014 - 2024")
+            Text("2014 - 2024")
               .subtitleStyle()
               .margin(.bottom, Double.sectionMargin)
               .textAlignment(.center)

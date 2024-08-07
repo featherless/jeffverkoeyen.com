@@ -15,9 +15,9 @@ extension Portfolio {
                 .frame(width: 96, height: 96)
                 .frame(width: 128, height: 128, condition: .desktop)
               Div {
-                Paragraph("1299 forks")
+                Text("1299 forks")
                   .id("nimbus_forks")
-                Paragraph("6452 followers")
+                Text("6452 followers")
                   .id("nimbus_followers")
               }
               .subtitleStyle()
@@ -40,7 +40,7 @@ Nimbus was the successor to Three20. Its focus on documentation and modular arch
 As of 2024, Nimbus is still [one of the top Objective-C
 projects on GitHub](https://github.com/EvanLi/Github-Ranking/blob/master/Top100/Objective-C.md).
 """)
-              Paragraph("June 2011 - May 2024")
+              Text("June 2011 - May 2024")
                 .subtitleStyle()
                 .margin(.bottom, Double.sectionMargin, condition: .desktop)
             }

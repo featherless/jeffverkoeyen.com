@@ -29,7 +29,7 @@ extension Portfolio {
           VStack {
             H2 {
               HStack(alignment: .baseline, spacing: 8) {
-                Text("Google Maps")
+                DOMString("Google Maps")
                 Small("for iPhone")
                   .textColor(.text, darkness: 700)
                   .textColor(.text, darkness: 300, condition: .dark)
@@ -46,7 +46,7 @@ Jeff's leadership enabled the code for Google Maps to form the
 iOS foundation of what became publicly known as
 [Material](http://material.ios).
 """)
-            Paragraph("June 2012 - April 2013")
+            Text("June 2012 - April 2013")
               .subtitleStyle()
               .margin(.bottom, Double.sectionMargin, condition: .desktop)
           }

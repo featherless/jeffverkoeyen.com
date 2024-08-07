@@ -20,10 +20,10 @@ struct About: View {
           .frame(width: 0.41, condition: .desktop)
 
           Div {
-            Paragraph("Latest status")
+            Text("Latest status")
               .fontSize(.small)
               .textColor(.text, darkness: 500)
-            Paragraph("Building a stealth startup")
+            Text("Building a stealth startup")
               .textColor(.text, darkness: 950)
           }
           .margin(.top, 4)

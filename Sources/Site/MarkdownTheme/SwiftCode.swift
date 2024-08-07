@@ -25,7 +25,7 @@ struct SwiftCode: View {
         if token.keyPathInParent == \AttributeSyntax.atSign {
           Keyword(string: token.text)
         } else {
-          Slipstream.Text(token.text)
+          Slipstream.DOMString(token.text)
         }
       case .identifier:
         Identifier(string: token.text, keyPathInParent: token.keyPathInParent)
@@ -40,12 +40,12 @@ struct SwiftCode: View {
           .stringSegment,
           .wildcard,
           .dollarIdentifier:
-        Slipstream.Text(token.text)
+        Slipstream.DOMString(token.text)
       case .stringQuote, .singleQuote:
         Quotes(string: token.text)
       default:
         if token.tokenKind.isPunctuation {
-          Slipstream.Text(token.text)
+          Slipstream.DOMString(token.text)
         } else {
           let _ = print(token.tokenKind)
           EmptyView()
@@ -166,11 +166,11 @@ private struct Trivia: View {
           .docBlockComment(let comment):
         Comment(string: comment)
       case .newlines(let count):
-        Slipstream.Text(String.init(repeating: "\n", count: count))
+        Slipstream.DOMString(String.init(repeating: "\n", count: count))
       case .spaces(let count):
-        Slipstream.Text(String.init(repeating: " ", count: count))
+        Slipstream.DOMString(String.init(repeating: " ", count: count))
       case .tabs(let count):
-        Slipstream.Text(String.init(repeating: " ", count: count * 2))
+        Slipstream.DOMString(String.init(repeating: " ", count: count * 2))
       default:
         let _ = print(triviaPiece)
         fatalError()

@@ -15,7 +15,7 @@ struct BlogPostView: View {
     ) {
       MediumContainer {
         navigation
-        Paragraph(post.date.formatted(date: .abbreviated, time: .omitted))
+        Text(post.date.formatted(date: .abbreviated, time: .omitted))
           .subtitleStyle()
         Article(post.content)
         HorizontalRule()
@@ -44,7 +44,7 @@ struct BlogPostView: View {
         .fontWeight(600)
         .underline(condition: .hover)
       } else {
-        Paragraph("No older posts")
+        Text("No older posts")
           .subtitleStyle()
       }
       Div {
@@ -62,7 +62,7 @@ struct BlogPostView: View {
           .fontWeight(600)
           .underline(condition: .hover)
         } else {
-          Paragraph("No newer posts")
+          Text("No newer posts")
             .subtitleStyle()
         }
       }

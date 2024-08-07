@@ -16,7 +16,7 @@ struct Contact: View {
               Image(URL(string: "/gfx/threads.svg"))
                 .accessibilityLabel("The Threads app logo")
                 .frame(width: 32, height: 32)
-              Text("featherless")
+              DOMString("featherless")
             }
           }
           .fontSize(.extraExtraLarge)
