@@ -52,9 +52,9 @@ extension Portfolio {
         MediumContainer {
           Div {
             H2 {
-              HStack(alignment: .baseline, spacing: 8) {
-                Text("Google")
-                Small("Apple platforms design leadership")
+              HStack(alignment: .baseline, spacing: 16) {
+                Span("Google")
+                Small("Design leadership for Apple platforms")
                   .textColor(.text, darkness: 700)
                   .textColor(.text, darkness: 300, condition: .dark)
               }
