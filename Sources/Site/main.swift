@@ -9,7 +9,7 @@ let projectRootURL = thisFolderURL
   .deletingLastPathComponent()
 let sourceURL = projectRootURL.appending(path: ".src")
 let siteURL = projectRootURL.appending(path: "site")
-guard let blogURLPrefix = URL(string: "blog/") else {
+guard let blogURLPrefix = URL(string: "/blog/") else {
   fatalError()
 }
 let postsURL = thisFolderURL.appending(path: "Posts")

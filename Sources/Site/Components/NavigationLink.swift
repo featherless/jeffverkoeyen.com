@@ -51,6 +51,9 @@ struct NavigationLink: View {
   }
 
   private var isCurrent: Bool {
-    path == destination?.path() && destination?.host(percentEncoded: false) == nil
+    guard let destination else {
+      return false
+    }
+    return path.hasPrefix(destination.path()) && destination.host(percentEncoded: false) == nil
   }
 }

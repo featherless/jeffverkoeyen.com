@@ -33,14 +33,16 @@ struct Article: View {
         Slipstream.Preformatted {
           SwiftCode(code: codeBlock.code)
         }
-        .textColor(.zinc, darkness: 50)
+        .textColor(.zinc, darkness: 950)
+        .textColor(.zinc, darkness: 50, condition: .dark)
         .padding(16)
         .border(.init(.zinc, darkness: 300))
         .border(.init(.zinc, darkness: 700), condition: .dark)
         .cornerRadius(.medium)
         .margin(.bottom, Double.sectionMargin)
         .fontDesign(.mono)
-        .background(.black)
+        .background(.zinc, darkness: 200)
+        .background(.black, condition: .dark)
         .fontSize(.small)
         .modifier(ClassModifier(add: "overflow-scroll"))
 
@@ -50,7 +52,8 @@ struct Article: View {
         }
         .padding(.horizontal, 6)
         .padding(.vertical, 4)
-        .background(.zinc, darkness: 800)
+        .background(.zinc, darkness: 200)
+        .background(.zinc, darkness: 800, condition: .dark)
         .fontWeight(500)
         .cornerRadius(.medium)
 

@@ -18,24 +18,32 @@ struct SwiftCode: View {
       if token.tokenKind != .endOfFile {
         Trivia(pieces: token.leadingTrivia.pieces)
       }
-      if token.tokenKind.isPunctuation {
-        Slipstream.Text(token.text)
-      } else {
-        switch token.tokenKind {
-        case .keyword:
+      switch token.tokenKind {
+      case .keyword:
+        Keyword(string: token.text)
+      case .atSign:
+        if token.keyPathInParent == \AttributeSyntax.atSign {
           Keyword(string: token.text)
-        case .identifier:
-          Identifier(string: token.text, keyPathInParent: token.keyPathInParent)
-        case .endOfFile:
-          EmptyView()
-        case .floatLiteral,
-            .integerLiteral:
-          Literal(string: token.text)
-        case .prefixOperator,
-            .binaryOperator,
-            .postfixOperator:
+        } else {
           Slipstream.Text(token.text)
-        default:
+        }
+      case .identifier:
+        Identifier(string: token.text, keyPathInParent: token.keyPathInParent)
+      case .endOfFile:
+        EmptyView()
+      case .floatLiteral,
+          .integerLiteral:
+        Literal(string: token.text)
+      case .prefixOperator,
+          .binaryOperator,
+          .postfixOperator:
+        Slipstream.Text(token.text)
+      case .stringQuote, .singleQuote:
+        Quotes(string: token.text)
+      default:
+        if token.tokenKind.isPunctuation {
+          Slipstream.Text(token.text)
+        } else {
           let _ = print(token.tokenKind)
           EmptyView()
         }
@@ -62,7 +70,8 @@ private struct Keyword: View {
   let string: String
   var body: some View {
     Slipstream.Span(string)
-      .textColor(.pink, darkness: 400)
+      .textColor(.pink, darkness: 700)
+      .textColor(.pink, darkness: 400, condition: .dark)
   }
 }
 
@@ -74,34 +83,54 @@ private struct Literal: View {
   }
 }
 
+private struct Quotes: View {
+  let string: String
+  var body: some View {
+    Slipstream.Span(string)
+      .textColor(.orange, darkness: 400)
+  }
+}
+
 private struct Identifier: View {
   let string: String
   let keyPathInParent: AnyKeyPath?
 
   var body: some View {
-    Slipstream.Span(string)
-      .textColor(identifierColor)
-  }
+    let span = Slipstream.Span(string)
 
-  var identifierColor: Color {
     switch keyPathInParent {
     case \IdentifierTypeSyntax.name,
-      \FunctionDeclSyntax.name,
-      \DeclReferenceExprSyntax.baseName:
-      return .palette(.purple, darkness: 300)
+      \FunctionDeclSyntax.name:
+      span
+        .textColor(.palette(.pink, darkness: 600))
+        .textColor(.palette(.pink, darkness: 400), condition: .dark)
+    case \DeclReferenceExprSyntax.baseName:
+      span
+        .textColor(.palette(.purple, darkness: 600))
+        .textColor(.palette(.purple, darkness: 400), condition: .dark)
     case \FunctionParameterSyntax.firstName,
       \LabeledExprSyntax.label:
-      return .palette(.purple, darkness: 500)
+      span
+        .textColor(.palette(.purple, darkness: 500))
     case \StructDeclSyntax.name:
-      return .palette(.orange, darkness: 400)
+      span
+        .textColor(.palette(.orange, darkness: 600))
+        .textColor(.palette(.orange, darkness: 400), condition: .dark)
     case \IdentifierPatternSyntax.identifier,
-      \TypeAliasDeclSyntax.name:
-      return .palette(.blue, darkness: 400)
-    case .none:
-      return .palette(.zinc, darkness: 50)
+      \TypeAliasDeclSyntax.name,
+      \ClassDeclSyntax.name:
+      span
+        .textColor(.palette(.blue, darkness: 700))
+        .textColor(.palette(.blue, darkness: 300), condition: .dark)
+    case .none, \ObjCSelectorPieceSyntax.name:
+      span
+        .textColor(.palette(.zinc, darkness: 950))
+        .textColor(.palette(.zinc, darkness: 50), condition: .dark)
     default:
-      print("Unstyled key path:", keyPathInParent!, string)
-      fatalError()
+      let _ = print("Unstyled key path:", keyPathInParent!, string)
+      span
+        .textColor(.palette(.green, darkness: 600))
+        .textColor(.palette(.green, darkness: 400), condition: .dark)
     }
   }
 }
@@ -126,3 +155,4 @@ private struct Trivia: View {
     }
   }
 }
+
