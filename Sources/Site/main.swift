@@ -20,7 +20,7 @@ if !FileManager.default.fileExists(atPath: sourceURL.absoluteString) {
   try FileManager.default.createDirectory(at: sourceURL, withIntermediateDirectories: true)
 }
 
-var sitemap: [String: any View] = [
+var sitemap: Sitemap = [
   "index.html": Home(),
   "about/index.html": About(),
   "contact/index.html": Contact(),
@@ -112,16 +112,7 @@ if let mostRecentPost = posts.last {
   )
 }
 
-for (path, view) in sitemap.sorted(by: { $0.key < $1.key }) {
-  print(path)
-  let output = try "<!DOCTYPE html>\n" + renderHTML(view)
-  let fileURL = siteURL.appending(path: path)
-  let folderURL = fileURL.deletingLastPathComponent()
-  if !FileManager.default.fileExists(atPath: folderURL.path(percentEncoded: false)) {
-    try FileManager.default.createDirectory(at: folderURL, withIntermediateDirectories: true)
-  }
-  try output.write(to: siteURL.appending(path: path), atomically: true, encoding: .utf8)
-}
+try renderSitemap(sitemap, to: siteURL)
 
 let process = Process()
 let pipe = Pipe()
