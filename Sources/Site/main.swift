@@ -43,17 +43,6 @@ func allBlogFiles(in directory: URL?) -> [URL] {
   return markdownFiles.sorted { $0.path() < $1.path() }
 }
 
-struct BlogPost {
-  let fileURL: URL
-  let slug: String
-  let outputURL: URL
-  let url: URL
-  let date: Date
-  let title: String?
-  let content: String
-  let document: Document
-}
-
 func postURL(filePath file: URL) throws -> BlogPost? {
   let datedSlug = file.deletingPathExtension().lastPathComponent
   var parts = datedSlug.components(separatedBy: "-")

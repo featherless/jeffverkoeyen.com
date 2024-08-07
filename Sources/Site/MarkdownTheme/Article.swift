@@ -45,7 +45,7 @@ struct Article: View {
         .border(.init(.zinc, darkness: 700), condition: .dark)
         .cornerRadius(.medium)
         .margin(.bottom, Double.sectionMargin)
-        .fontDesign(.mono)
+        .fontDesign(.monospaced)
         .background(.zinc, darkness: 200)
         .background(.black, condition: .dark)
         .fontSize(.small)

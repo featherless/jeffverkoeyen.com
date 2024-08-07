@@ -1,6 +1,18 @@
 import Foundation
 
+import Markdown
 import Slipstream
+
+struct BlogPost {
+  let fileURL: URL
+  let slug: String
+  let outputURL: URL
+  let url: URL
+  let date: Date
+  let title: String?
+  let content: String
+  let document: Document
+}
 
 struct BlogPostView: View {
   let post: BlogPost
