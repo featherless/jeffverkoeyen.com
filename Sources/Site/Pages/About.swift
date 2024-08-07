@@ -24,8 +24,7 @@ struct About: View {
               .fontSize(.small)
               .textColor(.text, darkness: 500)
             Paragraph("Building a stealth startup")
-              .textColor(.text, darkness: 50)
-              .textColor(.text, darkness: 950, condition: .dark)
+              .textColor(.text, darkness: 950)
           }
           .margin(.top, 4)
           .margin(.bottom, 16)
