@@ -23,6 +23,7 @@ struct BlogPostView: View {
       }
       .textColor(.text, darkness: 950)
       .textColor(.text, darkness: 200, condition: .dark)
+      .padding(.horizontal, 8)
       .padding(.bottom, 32)
     }
   }
