@@ -48,7 +48,7 @@ web, and iOS as three distinct platforms but with an over-arching design languag
 all. Concepts like the floating action button, solid colored navigation bars, and floating snackbars
 all emerged from the Material team.
 
-![Nimbus looking out a window in New York](/gfx/nimbus.jpg)
+![Nimbus looking out a window in New York](/gfx/nimbus.jpeg)
 
 > Nimbus, looking out a window in New York City.
 
