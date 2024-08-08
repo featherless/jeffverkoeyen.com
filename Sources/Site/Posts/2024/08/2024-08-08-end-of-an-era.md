@@ -1,7 +1,7 @@
 # End of an era
 
 I've been hearing this expression a lot lately. Most notably though because I handed in my
-resignation at Google after a [10+ year career there](/portfolio).
+resignation after [10+ years at Google](/portfolio).
 
 > It is hard to overstate the impact you've had on me, my project, and Google as a whole.  You have been a powerful advocate for excellent user interface design that helps our users, an advocate for effective brand presence in our designs that helps communicate the value of Google, and an advocate for excellent software design that makes all of this possible at Google scale.  And it has been a pleasure and privilege to partner closely with you over the years...    
 > — Translate iOS Lead 
