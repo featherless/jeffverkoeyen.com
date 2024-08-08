@@ -8,4 +8,4 @@ DerivedData/
 .netrc
 
 site/**/*.html
-
+site/feed.atom

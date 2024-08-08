@@ -114,6 +114,57 @@ if let mostRecentPost = posts.last {
 
 try renderSitemap(sitemap, to: siteURL)
 
+let site = "https://jeffverkoeyen.com"
+let feedFilename = "feed.atom"
+
+struct AtomEntry {
+  let title: String?
+  let url: URL
+  let date: Date
+  let html: String
+
+  var toString: String {
+    return """
+<entry>
+  <title>\(title ?? "No title")</title>
+  <link rel="alternate" type="text/html" href="\(site)\(url.path())"/>
+  <id>\(site)\(url.path())</id>
+  <published>\(ISO8601DateFormatter().string(from: date))</published>
+  <updated>\(ISO8601DateFormatter().string(from: date))</updated>
+  <content type="html">><![CDATA[\(html)]]></content>
+</entry>
+"""
+  }
+}
+let atomEntries = try posts.reversed().map {
+  AtomEntry(
+    title: $0.title,
+    url: $0.url,
+    date: $0.date,
+    html: try renderHTML(Article($0.content))
+  )
+}.map { $0.toString }.joined(separator: "\n")
+
+let atomFeed = """
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xmlns:fh="http://purl.org/syndication/history/1.0" xml:base="/feed.atom" xml:lang="en-US">
+	<title>featherless software design</title>
+	<id>\(site)</id>
+	<link rel="alternate" href="\(site)"/>
+  <link href="\(site)/\(feedFilename)" rel="self"/>
+  <link href="\(site)/\(feedFilename)" rel="first"/>
+ <updated>\(ISO8601DateFormatter().string(from: .now))</updated>
+	<author>
+		<name>Jeff Verkoeyen</name>
+    <uri>\(site)</uri>
+    <email>jverkoey@gmail.com</email>
+	</author>
+\(atomEntries)
+</feed>
+"""
+
+try atomFeed.write(to: siteURL.appending(path: feedFilename), atomically: true, encoding: .utf8)
+
 let process = Process()
 let pipe = Pipe()
 process.standardOutput = pipe
