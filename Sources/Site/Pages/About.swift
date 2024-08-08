@@ -117,7 +117,7 @@ decade later, and many continued to lead critical iOS efforts across the company
 > Jeff not only designed and implemented a large chunk of the Maps UI, but he was also a key
 > player in doing code reviews for the other members of the team. Basically any change to the
 > UI has Jeff's name on it as either the implementor or the reviewer.    
-> \\- Leadership feedback, 2012
+> — Leadership feedback, 2012
 
 As one of the team’s most experienced UX/UI engineers, Jeff worked closely with design and
 engineering to build a set of modular UI components that would go on to form the

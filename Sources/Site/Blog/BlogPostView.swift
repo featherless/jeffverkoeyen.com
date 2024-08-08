@@ -27,8 +27,9 @@ struct BlogPostView: View {
     ) {
       MediumContainer {
         navigation
-        Text(post.date.formatted(date: .abbreviated, time: .omitted))
+        Text("Published: " + post.date.formatted(date: .abbreviated, time: .omitted))
           .subtitleStyle()
+          .margin(.bottom, 8)
         Article(post.content)
         HorizontalRule()
         navigation
