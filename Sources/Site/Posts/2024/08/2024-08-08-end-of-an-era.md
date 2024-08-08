@@ -14,7 +14,7 @@ years, and that it's even more unusual to stay on the same team for more than a 
 I was on the same team, in essentially the same effective leadership role (Google Design for
 Apple Platforms), for my entire 10 years at Google.
 
-This is in part because I founded the team. As a continuation of my time leading Three20
+This is in part because I co-founded the team. As a continuation of my time leading Three20
 and then Nimbus, I was fortunate to join Google at around the time that Apple decided it was going
 to make its own Maps application. This was one of those unique moments where a combination of timing
 and ability and opportunity all converge into what we call luck, and I was certainly lucky to join
