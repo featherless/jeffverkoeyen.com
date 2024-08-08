@@ -124,7 +124,7 @@ process.arguments = [
   "cd \(projectRootURL.path(percentEncoded: false)) && npx tailwindcss -i .src/tailwind.css -o ./site/css/main.css --minify",
 ]
 
-try! process.run()
+try process.run()
 let data = pipe.fileHandleForReading.readDataToEndOfFile()
 
 guard let standardOutput = String(data: data, encoding: .utf8) else {

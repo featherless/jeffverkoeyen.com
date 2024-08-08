@@ -44,7 +44,7 @@ Jeff led UX engineering for the launch of Google Maps for iOS.
 Applying lessons learned from Facebook, Three20, and Nimbus,
 Jeff's leadership enabled the code for Google Maps to form the
 iOS foundation of what became publicly known as
-[Material](http://material.ios).
+[Material](http://material.io).
 """)
             Text("June 2012 - April 2013")
               .subtitleStyle()
