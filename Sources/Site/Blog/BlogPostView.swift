@@ -4,11 +4,17 @@ import Markdown
 import Slipstream
 
 struct BlogPost {
+  // Locations
   let fileURL: URL
   let slug: String
   let outputURL: URL
   let url: URL
+
+  // Metadata
   let date: Date
+  let draft: Bool
+
+  // Article structure
   let title: String?
   let content: String
   let document: Document
@@ -27,9 +33,20 @@ struct BlogPostView: View {
     ) {
       MediumContainer {
         navigation
-        Text("Published: " + post.date.formatted(date: .abbreviated, time: .omitted))
-          .subtitleStyle()
-          .margin(.bottom, 8)
+        Div {
+          let postDate = post.date.formatted(date: .abbreviated, time: .omitted)
+          if post.draft {
+            Slipstream.Text("Draft: " + postDate)
+              .bold()
+              .textColor(.white)
+              .padding(16)
+              .background(.red, darkness: 500)
+          } else {
+            Slipstream.Text("Published: " + postDate)
+          }
+        }
+        .subtitleStyle()
+        .margin(.bottom, 8)
         Article(post.content)
         HorizontalRule()
         navigation

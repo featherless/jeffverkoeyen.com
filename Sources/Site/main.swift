@@ -87,6 +87,7 @@ func postURL(filePath file: URL) throws -> BlogPost? {
     outputURL: outputURL,
     url: outputURL.deletingLastPathComponent(),
     date: date,
+    draft: file.deletingLastPathComponent().lastPathComponent == "Drafts",
     title: documentHeading,
     content: postContent,
     document: document
@@ -164,24 +165,3 @@ let atomFeed = """
 """
 
 try atomFeed.write(to: siteURL.appending(path: feedFilename), atomically: true, encoding: .utf8)
-
-let process = Process()
-let pipe = Pipe()
-process.standardOutput = pipe
-process.executableURL = URL(fileURLWithPath: "/bin/zsh")
-process.environment = ["PATH": "/opt/homebrew/bin:/Applications/Xcode-beta.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"]
-process.arguments = [
-  "-c",
-  "cd \(projectRootURL.path(percentEncoded: false)) && npx tailwindcss -i .src/tailwind.css -o ./site/css/main.css --minify",
-]
-
-try process.run()
-let data = pipe.fileHandleForReading.readDataToEndOfFile()
-
-guard let standardOutput = String(data: data, encoding: .utf8) else {
-  FileHandle.standardError.write(Data("Error in reading standard output data".utf8))
-  fatalError() // or exit(EXIT_FAILURE) and equivalent
-  // or, you might want to handle it in some other way instead of a crash
-}
-
-print(standardOutput)

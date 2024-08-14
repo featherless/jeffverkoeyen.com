@@ -9,3 +9,4 @@ DerivedData/
 
 site/**/*.html
 site/feed.atom
+Sources/Site/Posts/Drafts
