@@ -69,6 +69,7 @@ struct Article: View {
             context.recurse()
           }
           .fontSize(.extraExtraExtraLarge)
+          .fontLeading(.snug)
           .bold()
           .margin(.bottom, 8)
           .fontDesign("rounded")

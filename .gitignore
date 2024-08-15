@@ -8,5 +8,6 @@ DerivedData/
 .netrc
 
 site/**/*.html
+site/css/main.css
 site/feed.atom
 Sources/Site/Posts/Drafts
