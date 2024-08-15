@@ -2,7 +2,7 @@
 
 The [MIDI specification] outlines the complete set of messages one can expect to receive from a MIDI endpoint. Each message has its own distinct parameters and values. This is a great opportunity to use an [enum type with associated values](https://developer.apple.com/library/prerelease/ios/documentation/Swift/Conceptual/Swift_Programming_Language/Enumerations.html#//apple_ref/doc/uid/TP40014097-CH12-ID148).
 
-```language-swift
+```swift
 public enum Message {
   case NoteOff(channel: UInt8, key: UInt8, velocity: UInt8)
   case NoteOn(channel: UInt8, key: UInt8, velocity: UInt8)
@@ -16,13 +16,13 @@ public enum Message {
 
 With this enum we can now create a MIDI message like so:
 
-```language-swift
+```swift
 Message.NoteOff(channel: channel, key: key, velocity: velocity)
 ```
 
 And react to messages in a switch statement like so:
 
-```language-swift
+```swift
 switch message {
 case .NoteOn(let channel, let key, let velocity):
   print(velocity)

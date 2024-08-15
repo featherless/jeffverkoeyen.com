@@ -4,7 +4,7 @@
 
 Let's build a Dictionary extension that fills in empty keys with "default" values when accessed. This extension will replace the following logic:
 
-```language-swift
+```swift
 if dictionary[key] == nil {
   dictionary[key] = DefaultValue()
 }
@@ -17,7 +17,7 @@ with something that can be expressed in a single line.
 
 Presented below is an extension of Dictionary that defines the mutating func `get`. Because we're always going to return *something*, we can make this `get` function return a non-optional `Value` type.
 
-```language-swift
+```swift
 extension Dictionary {
   mutating func get(key: Key, @autoclosure withDefault value: Void -> Value) -> Value {
     if self[key] == nil {
@@ -43,7 +43,7 @@ Some interesting things going on here:
 
 Now we can write the following:
 
-```language-swift
+```swift
 struct Device {
   func addObserver() -> String { return "added observer" }
 }
@@ -56,7 +56,7 @@ dictionary.get("foo", withDefault: Device()).addObserver()
 
 Consider the following:
 
-```language-swift
+```swift
 var dictionary: [String:[String]] = [:]
 dictionary.get("foo", withDefault: []).append("bar")
 ```
@@ -67,7 +67,7 @@ If you attempt to run this code in a Playground you'll get the following error:
 
 If we ignore what it's saying and try to get it to compile, we might change the code to:
 
-```language-swift
+```swift
 var dictionary: [String:[String]] = [:]
 var strings = dictionary.get("foo", withDefault: [])
 strings.append("bar")
@@ -75,7 +75,7 @@ strings.append("bar")
 
 But check out what happens when we print out `dictionary`:
 
-```language-swift
+```swift
 ["foo": []]
 ```
 
@@ -85,7 +85,7 @@ Why? **Arrays returned by functions in Swift are copies**. Modifications made to
 
 So why, then, does the following code work?
 
-```language-swift
+```swift
 var dictionary: [String:[String]] = [:]
 dictionary["foo"] = []
 dictionary["foo"]?.append("bar")
@@ -102,7 +102,7 @@ Interestingly enough: **it is returning a copy!** But there's some magic going o
 
 These three steps give the illusion that we're modifying the array in-place. Note that, without step 3, the dictionary won't end up storing the modified array:
 
-```language-swift
+```swift
 var dictionary: [String:[String]] = [:]
 dictionary["foo"] = []
 var array = dictionary["foo"]! // 1.
@@ -125,7 +125,7 @@ Tucked away in the [Swift 2 Subscripts documentation](https://developer.apple.co
 
 So let's rewrite our method using `subscript`:
 
-```language-swift
+```swift
 extension Dictionary {
   subscript(key: Key, @autoclosure withDefault value: Void -> Value) -> Value {
     mutating get {
@@ -146,7 +146,7 @@ extension Dictionary {
 
 And this is how you use it:
 
-```language-swift
+```swift
 dictionary["foo", withDefault: []].append("bar")
 ```
 
@@ -161,7 +161,7 @@ I learned how subscript in-place modifications work by doing the following:
 3. Added print statements to the get/set.
 4. Wrote a simple example of what I wanted to achieve.
 
-```language-swift
+```swift
 class Foo {
   var array: [String] = []
   subscript(name: String) -> [String] {

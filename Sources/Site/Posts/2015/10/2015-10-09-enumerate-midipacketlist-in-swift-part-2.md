@@ -10,7 +10,7 @@ Swift 2's [AnyGenerator] type - and corresponding [anyGenerator] method - allow 
 
 The essential compilable code for a SequenceType built with AnyGenerator looks like this:
 
-```language-swift
+```swift
 extension MIDIPacketList: SequenceType {
   public func generate() -> AnyGenerator<MIDIPacket> {
     // TODO: Local state...
@@ -35,7 +35,7 @@ The Generator in the code above will not generate anything. Let's fill in the im
 
 First we define the generator's iterator.
 
-```language-swift
+```swift
 public func generate() -> AnyGenerator<MIDIPacket> {
   var iterator: MIDIPacket?
   var nextIndex: UInt32 = 0
@@ -48,7 +48,7 @@ public func generate() -> AnyGenerator<MIDIPacket> {
 
 Next we define the logic that will advance the iterator on each call of the generator.
 
-```language-swift
+```swift
   return anyGenerator {
     if iterator == nil {
       iterator = self.packet
@@ -69,7 +69,7 @@ Next we define the logic that will advance the iterator on each call of the gene
 
 The final implementation advances and checks `nextIndex` against `self.numPackets` before iterating in order to avoid accessing invalid memory.
 
-```language-swift
+```swift
 public func generate() -> AnyGenerator<MIDIPacket> {
   var iterator: MIDIPacket?
   var nextIndex: UInt32 = 0

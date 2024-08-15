@@ -10,7 +10,7 @@ Let's see a concrete example of the problem and how we can minimize its likeliho
 
 Consider the following pair of frameworks:
 
-```language-swift
+```swift
 // Within Framework1.framework
 @objc public class SomeManager: NSObject {
   public func doThing() {
@@ -28,7 +28,7 @@ Consider the following pair of frameworks:
 
 We might find the following code in an app that includes both frameworks:
 
-```language-objectivec
+```objc
 SomeManager *instance = [SomeManager new];
 [instance doThing];
 ```
@@ -47,7 +47,7 @@ Swift rightfully doesn't encourage the use of namespace prefixes because framewo
 
 `@objc(name)` allows you to provide an Objective-C-specific name for a class to be used only from Objective-C code. If we modify our original example:
 
-```language-swift
+```swift
 // Within Framework1.framework
 @objc(FW1SomeManager) public class SomeManager: NSObject {
   public func doThing() {

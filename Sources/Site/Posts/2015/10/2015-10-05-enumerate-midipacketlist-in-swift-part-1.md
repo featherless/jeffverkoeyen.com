@@ -11,7 +11,7 @@ But before we dive into the implementation, let's understand how MIDI packets ar
 
 CoreMIDI transports messages via [MIDIPacketList], which is essentially a linked list of [MIDIPacket] structs in that its packets can only be sequentially iterated over.
 
-```language-swift
+```swift
 // Extracted from the CoreMIDI Swift framework
 public struct MIDIPacketList {
   public var numPackets: UInt32
@@ -23,7 +23,7 @@ public struct MIDIPacketList {
 
 Notice that `packet` is a singular MIDIPacket, not an array like you might expect. This is a side effect of the Objective-C struct from which this Swift struct was generated:
 
-```language-objectivec
+```objc
 // Extracted from the CoreMIDI Objective-C framework header
 struct MIDIPacketList {
   UInt32 numPackets;	
@@ -37,7 +37,7 @@ So how do we iterate over the packets? The answer was introduced in Swift 2: [MI
 
 A C implementation might look like this:
 
-```language-objectivec
+```objc
 MIDIPacket *packet = &packetList->packet[0];
 for (int i = 0; i < packetList->numPackets; ++i) {
   ...
@@ -47,7 +47,7 @@ for (int i = 0; i < packetList->numPackets; ++i) {
 
 But using Swift extensions we're going to allow enumeration like this:
 
-```language-swift
+```swift
 let packetList: MIDIPacketList
 for packet in packetList {
   ...
@@ -60,7 +60,7 @@ for packet in packetList {
 
 Treating MIDIPacketList like a sequence is easy with Swift extensions:
 
-```language-swift
+```swift
 extension MIDIPacketList: SequenceType {
 }
 ```
@@ -78,13 +78,13 @@ SequenceType requires two things for conformity:
 
 Someone coming from Objective-C has been trained to see a protocol and mechanically start implementing its required methods. In this case that would entail defining the Generator type:
 
-```language-swift
+```swift
 public typealias Generator = MIDIPacketListGenerator
 ```
 
 and implementing the generate method:
 
-```language-swift
+```swift
 public func generate() -> Generator {
   return Generator(packetList: self)
 }
@@ -92,7 +92,7 @@ public func generate() -> Generator {
 
 MIDIPacketListGenerator must be a GeneratorType, so we'd implement the struct accordingly:
 
-```language-swift
+```swift
 public struct MIDIPacketListGenerator: GeneratorType {
   public typealias Element = MIDIPacket
   public mutating func next() -> Element? {
@@ -103,7 +103,7 @@ public struct MIDIPacketListGenerator: GeneratorType {
 
 With a working implementation looking something like this:
 
-```language-swift
+```swift
 public struct MIDIPacketListGenerator : GeneratorType {
   public typealias Element = MIDIPacket
 

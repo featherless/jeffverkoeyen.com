@@ -14,7 +14,7 @@ So let's make CFString [Hashable].
 
 ## CFString+Hashable.swift
 
-```language-swift
+```swift
 extension CFString : Hashable {
   public var hashValue: Int { return Int(CFHash(self)) }
 }

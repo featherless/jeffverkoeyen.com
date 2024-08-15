@@ -12,7 +12,7 @@ Consider a packet with a length of 10 bytes that contains four distinct MIDI mes
 
 Given this packet, Swift's MIDIPacket definition is intriguing:
 
-```language-swift
+```swift
 // Extracted from the CoreMIDI Swift framework
 public struct MIDIPacket {
   public var timeStamp: MIDITimeStamp
@@ -40,7 +40,7 @@ We'll use the helper function `generatorForTuple` defined in *[Enumerating tuple
 
 We'll start by making MIDIPacket conform to SequenceType:
 
-```language-swift
+```swift
 extension MIDIPacket: SequenceType {
   public func generate() -> AnyGenerator<Message> {
 
@@ -57,7 +57,7 @@ extension MIDIPacket: SequenceType {
 
 The generator state includes a **generator** for our tuple values and an **index** that tracks our iteration progress.
 
-```language-swift
+```swift
 public func generate() -> AnyGenerator<Message> {
   var generator = generatorForTuple(self.data)
   var index: UInt16 = 0
@@ -69,7 +69,7 @@ public func generate() -> AnyGenerator<Message> {
 
 We'll design the iterator such that each byte is accessed only once. To do this we'll define an inline closure called `pop` that generates the next `UInt8` value from the data tuple. This closure will also increment our index so that we know how far along we are.
 
-```language-swift
+```swift
 return anyGenerator {
   func pop() -> UInt8 {
     assert(index < self.length)
@@ -95,14 +95,14 @@ The type of a MIDI byte is defined by the most-significant bit. 1 is a status by
 
 > For the purposes of this article we're going to assume that the MIDI data is well-formed. In a production environment care must be taken to follow the MIDI specification's recommendation to gracefully ignore malformed messages.
 
-```language-swift
+```swift
 if (byte & 0x80) == 0x80 { // Status byte
 }
 ```
 
 If the byte is a status byte then we know that the top four bits represent the **message** and the lower four bits represent the **channel**:
 
-```language-swift
+```swift
 if (byte & 0x80) == 0x80 { // Status byte
   let status = byte & 0xF0
   let channel = byte & 0x0F
@@ -110,7 +110,7 @@ if (byte & 0x80) == 0x80 { // Status byte
 
 We use `message` to identify the MIDI message and the number of data bytes as defined by [the MIDI specification](http://www.midi.org/techspecs/midimessages.php).
 
-```language-swift
+```swift
 if (byte & 0x80) == 0x80 { // Status byte
   let message = byte & 0xF0
   let channel = byte & 0x0F
@@ -142,7 +142,7 @@ if (byte & 0x80) == 0x80 { // Status byte
 
 In order to safely terminate the generator we check `index` against the packet's `length`:
 
-```language-swift
+```swift
 return anyGenerator {
   if index >= self.length {
     return nil

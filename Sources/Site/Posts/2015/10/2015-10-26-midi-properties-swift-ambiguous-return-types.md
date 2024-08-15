@@ -17,7 +17,7 @@ We'd normally use an extension to add functionality to a type, but because `MIDI
 
 In order to minimize the property reader's scope let's create a wrapper object, `PropertyReader`. `propertyOf(object)` seems like a nice way to use this API, so let's also create a function and make PropertyReader's initializer `private`.
 
-```language-swift
+```swift
 func propertyOf(objectRef: MIDIObjectRef) -> PropertyReader? {
   if objectRef == 0 {
     return nil
@@ -39,7 +39,7 @@ class PropertyReader {
 
 CoreMIDI's property types are defined solely in the docs so we'll have to map each property to a type ourselves.
 
-```language-swift
+```swift
 extension PropertyReader {
   var name: String
   var manufacturer: String
@@ -50,7 +50,7 @@ extension PropertyReader {
 
 We only want to call CoreMIDI property methods when needed, so we'll use [computed properties](https://developer.apple.com/library/watchos/documentation/Swift/Conceptual/Swift_Programming_Language/Properties.html#//apple_ref/doc/uid/TP40014097-CH14-ID259) to implement the logic that fetches the property. Let's implement `name` and `uniqueID` first:
 
-```language-swift
+```swift
   var name: String {
     var value: Unmanaged<CFString>?
     let result = MIDIObjectGetStringProperty(self.objectRef, kMIDIPropertyName, &value)
@@ -68,7 +68,7 @@ We only want to call CoreMIDI property methods when needed, so we'll use [comput
 
 This will turn into a lot of boilerplate for each value. Let's extract the common parts into a function for each type:
 
-```language-swift
+```swift
   private func getString(propertyID: CFString) -> String {
     var value: Unmanaged<CFString>?
     let result = MIDIObjectGetStringProperty(self.objectRef, propertyID, &value)
@@ -86,7 +86,7 @@ This will turn into a lot of boilerplate for each value. Let's extract the commo
 
 Our properties now look like this:
 
-```language-swift
+```swift
   var name: String { return self.getString(kMIDIPropertyName) }
   var manufacturer: String { return self.getString(kMIDIPropertyManufacturer) }
   var uniqueID: Int32 { return self.getInt32(kMIDIPropertyUniqueID) }
@@ -105,7 +105,7 @@ It turns out that if you have a family of functions that **differ only by return
 
 Consider the following simple example:
 
-```language-swift
+```swift
 func method() -> Int {
   return 5
 }
@@ -122,7 +122,7 @@ Which `method` is called depends on the type of `result`. Try pasting this code 
 
 We'll use this to our advantage and build a function called `getValue` for each property type. Notice that the return value is the only difference in each function definition.
 
-```language-swift
+```swift
   private func getValue(propertyID: CFString) -> String {
     var value: Unmanaged<CFString>?
     let result = MIDIObjectGetStringProperty(self.objectRef, propertyID, &value)
@@ -140,7 +140,7 @@ We'll use this to our advantage and build a function called `getValue` for each 
 
 Now we can write the following:
 
-```language-swift
+```swift
   var name: String { return self.getValue(kMIDIPropertyName) }
   var manufacturer: String { return self.getValue(kMIDIPropertyManufacturer) }
   var uniqueID: Int32 { return self.getValue(kMIDIPropertyUniqueID) }

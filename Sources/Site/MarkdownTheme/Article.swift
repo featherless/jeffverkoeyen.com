@@ -35,7 +35,11 @@ struct Article: View {
 
       case let codeBlock as Markdown.CodeBlock:
         Slipstream.Preformatted {
-          SwiftCode(code: codeBlock.code)
+          if codeBlock.language == "swift" {
+            SwiftCode(code: codeBlock.code)
+          } else {
+            DOMString(codeBlock.code)
+          }
         }
         .textColor(.zinc, darkness: 950)
         .textColor(.zinc, darkness: 50, condition: .dark)

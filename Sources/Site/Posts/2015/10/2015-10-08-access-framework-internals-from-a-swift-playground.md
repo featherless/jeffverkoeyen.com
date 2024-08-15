@@ -2,7 +2,7 @@
 
 [Swift 2 introduced](https://developer.apple.com/library/prerelease/ios/documentation/DeveloperTools/Conceptual/WhatsNewXcode/Articles/xcode_7_0.html) the `@testable` keyword so that unit test targets could access internal APIs of frameworks like so:
 
-```language-swift
+```swift
 @testable import MyFramework
 ```
 

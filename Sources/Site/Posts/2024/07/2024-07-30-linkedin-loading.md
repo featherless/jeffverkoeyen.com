@@ -8,7 +8,7 @@ Activity indicators are typically broken down into two main categories: determin
 
 LinkedIn is using an indeterminate indicator though, so our code reflects the looping nature of this animation.
 
-```
+```swift
 import SwiftUI
 
 struct LinkedInActivityIndicator: View {

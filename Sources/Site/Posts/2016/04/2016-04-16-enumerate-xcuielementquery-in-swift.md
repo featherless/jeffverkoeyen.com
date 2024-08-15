@@ -2,7 +2,7 @@
 
 Let's learn how to make XCUIElementQuery enumerable in a Swift `for-in` loop so that we can do the following:
 
-```
+```swift
 for cell in XCUIApplication().cells {
   // cell is an XCUIElement
 }
@@ -10,7 +10,7 @@ for cell in XCUIApplication().cells {
 
 We'll take the template from [Minimal Swift protocol conformance](/blog/2015/10/28/minimal-swift-protocol-conformance/)'s section on "SequenceType" to make XCUIElementQuery conform to SequenceType:
 
-```
+```swift
 extension XCUIElementQuery : SequenceType {
   public func generate() -> AnyGenerator<XCUIElement> {
     var index = UInt(0)

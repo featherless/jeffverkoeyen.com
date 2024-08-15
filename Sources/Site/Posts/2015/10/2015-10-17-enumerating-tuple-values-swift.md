@@ -4,13 +4,13 @@
 
 Consider the following:
 
-```language-swift
+```swift
 let fibonacci = (0, 1, 1, 2, 3, 5, 8, 13, 21, 34)
 ```
 
 How might we iterate over the tuple's values? We might try a for-in loop:
 
-```language-swift
+```swift
 for val in fibonacci {
   val
 }
@@ -22,7 +22,7 @@ But tuples don't conform to SequenceType which the resulting error reiterates:
 
 So we might then try to enumerate using a subscript:
 
-```language-swift
+```swift
 fibonacci[0]
 ```
 
@@ -42,13 +42,13 @@ We create a Mirror by initializing it with the object we intend to reflect.
 
 [Mirror]: https://developer.apple.com/library/ios/documentation/Swift/Reference/Swift_Mirror_Structure/index.html
 
-```language-swift
+```swift
 let mirror = Mirror(reflecting: fibonacci)
 ```
 
 The resulting mirror object allows us to enumerate through the values of the object's children.
 
-```language-swift
+```swift
 for child in mirror.children {
   child.value
 }
@@ -58,7 +58,7 @@ for child in mirror.children {
 
 Rather than create a Mirror every time we want to enumerate a tuple, let's build a helper function that turns tuples into enumerable types.
 
-```language-swift
+```swift
 func generatorForTuple(tuple: Any) -> AnyGenerator<Any> {
   return anyGenerator(Mirror(reflecting: tuple).children.lazy.map { $0.value }.generate())
 }
@@ -69,7 +69,7 @@ func generatorForTuple(tuple: Any) -> AnyGenerator<Any> {
 
 We can now iterate over tuples like so:
 
-```language-swift
+```swift
 for val in generatorForTuple(fibonacci) {
   val
 }
