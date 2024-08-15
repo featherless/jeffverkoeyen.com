@@ -132,7 +132,7 @@ struct AtomEntry {
   <id>\(site)\(url.path())</id>
   <published>\(ISO8601DateFormatter().string(from: date))</published>
   <updated>\(ISO8601DateFormatter().string(from: date))</updated>
-  <content type="html">><![CDATA[\(html)]]></content>
+  <content type="html"><![CDATA[\(html)]]></content>
 </entry>
 """
   }
