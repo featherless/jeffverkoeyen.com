@@ -40,3 +40,28 @@ Thread 9 Queue : com.apple.root.user-initiated-qos.cooperative (concurrent)
 ```
 
 I've filed FB14804445 to track a resolution for this. 
+
+## Update @ 9:24pm PST
+
+One workaround is to use PasteButton's [`init(supportedContentTypes:payloadAction:)`](https://developer.apple.com/documentation/swiftui/pastebutton/init(supportedcontenttypes:payloadaction:))
+initializer, which allows you to control the task behavior of the paste operation:
+
+```swift
+// Will not crash
+PasteButton(supportedContentTypes: [.text]) { strings in
+  guard let provider = strings.first,
+        provider.canLoadObject(ofClass: String.self) else {
+    return
+  }
+  _ = provider.loadObject(ofClass: String.self) { string, error in
+    guard let string else {
+      return
+    }
+    Task { @MainActor in
+      self.text = string
+    }
+  }
+}
+```
+
+I've updated FB14804445 with this workaround.
