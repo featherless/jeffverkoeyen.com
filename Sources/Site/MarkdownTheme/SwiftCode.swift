@@ -134,7 +134,8 @@ private struct Identifier: View {
       \ObjCSelectorPieceSyntax.name,
       \MacroExpansionExprSyntax.macroName,
       \MacroExpansionDeclSyntax.macroName,
-      \ImportPathComponentSyntax.name:
+      \ImportPathComponentSyntax.name,
+      \ClosureShorthandParameterSyntax.name:
       span
         .textColor(.palette(.zinc, darkness: 950))
         .textColor(.palette(.zinc, darkness: 50), condition: .dark)
