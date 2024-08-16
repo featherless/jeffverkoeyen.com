@@ -8,7 +8,7 @@ Let's dive in to `Menu` use cases to get a better understanding of its sometimes
 
 ## Buttons
 
-In mose cases you're going to add one or more `Buttons` to a `Menu`. The result is predictable.
+In most cases you're going to add one or more `Buttons` to a `Menu`. The result is predictable.
 
 ```swift
 Menu {
