@@ -71,18 +71,8 @@ struct Article: View {
         switch heading.level {
         case 1:
           Slipstream.Heading(level: heading.level) {
-            Slipstream.Link(URL(string: "#\(id)")) {
-              Slipstream.Text("#")
-            }
-            .hidden()
-            .className("group-hover:flex")
-            .position(.absolute)
-            .className("-left-4")
-            .frame(width: 16, height: 16)
             context.recurse()
           }
-          .className("group")
-          .position(.relative)
           .fontSize(.extraExtraExtraLarge)
           .fontLeading(.snug)
           .bold()
