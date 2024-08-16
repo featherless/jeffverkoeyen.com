@@ -18,7 +18,7 @@ Menu {
 }
 ```
 
-![](/gfx/SwiftUI/Menu/button.png)
+![A menu with a button](/gfx/SwiftUI/Menu/button.png)
 
 ---
 
@@ -34,7 +34,7 @@ Menu {
 }
 ```
 
-![](/gfx/SwiftUI/Menu/text.png)
+![A menu with a disabled button](/gfx/SwiftUI/Menu/text.png)
 
 You get a disabled button. Also decently predictable.
 
@@ -52,7 +52,7 @@ Menu {
 }
 ```
 
-![](/gfx/SwiftUI/Menu/label-with-icon.png)
+![A menu with a disabled button that has an icon of a carrot](/gfx/SwiftUI/Menu/label-with-icon.png)
 
 When used as a top-level instance, you get a disabled button.
 
@@ -74,7 +74,7 @@ Menu {
 }
 ```
 
-![](/gfx/SwiftUI/Menu/button-with-icon.png)
+![A menu with a button that has an icon of a carrot](/gfx/SwiftUI/Menu/button-with-icon.png)
 
 ---
 
@@ -95,7 +95,7 @@ Menu {
 }
 ```
 
-![](/gfx/SwiftUI/Menu/button-with-icon.png)
+![A menu with a button that has an icon of a carrot](/gfx/SwiftUI/Menu/button-with-icon.png)
 
 This also works. Interesting. Remember this behavior because it will be important in a minute.
 
@@ -114,7 +114,7 @@ Menu {
 }
 ```
 
-![](/gfx/SwiftUI/Menu/text-and-icon.png)
+![A menu with two disabled buttons, a text button and a button with an icon of a carrot](/gfx/SwiftUI/Menu/text-and-icon.png)
 
 Weird. In isolation, this kind of makes sense; the `Text` and `Image` are both treated as separate
 elements.
@@ -143,7 +143,7 @@ Menu {
 }
 ```
 
-![](/gfx/SwiftUI/Menu/text-and-icon.png)
+![A menu with two disabled buttons, a text button and a button with an icon of a carrot](/gfx/SwiftUI/Menu/text-and-icon.png)
 
 Huh. Looks like the VStack is completely ignored. The sub-items are being treated as individual menu
 items.
@@ -162,7 +162,7 @@ Menu {
 }
 ```
 
-![](/gfx/SwiftUI/Menu/text-and-subtitle.png)
+![A menu with two disabled text buttons](/gfx/SwiftUI/Menu/text-and-subtitle.png)
 
 Still treated as separate elements. Maybe we can conclude that stacks are treated like some kind
 of a pass-through entity in `Menu` then. 
@@ -181,7 +181,7 @@ Menu {
 }
 ```
 
-![](/gfx/SwiftUI/Menu/text-and-icon.png)
+![A menu with two disabled buttons, a text button and a button with an icon of a carrot](/gfx/SwiftUI/Menu/text-and-icon.png)
 
 Nope, still separate items.
 
@@ -198,7 +198,7 @@ Menu {
 }
 ```
 
-![](/gfx/SwiftUI/Menu/text-and-subtitle.png)
+![A menu with two disabled text buttons](/gfx/SwiftUI/Menu/text-and-subtitle.png)
 
 Same thing.
 
@@ -227,7 +227,7 @@ Menu {
 }
 ```
 
-![](/gfx/SwiftUI/Menu/no-subtitle.png)
+![A menu with a button labeled "Projects" that is notably missing a subtitle](/gfx/SwiftUI/Menu/no-subtitle.png)
 
 Oh no. 🙊
 
@@ -249,7 +249,7 @@ Menu {
 }
 ```
 
-![](/gfx/SwiftUI/Menu/subtitle.png)
+![A menu with a button labeled "Projects" and a subtitle labeled "Hog Mobile"](/gfx/SwiftUI/Menu/subtitle.png)
 
 What happens if we add a third `Text` view?
 
@@ -267,7 +267,7 @@ Menu {
 }
 ```
 
-![](/gfx/SwiftUI/Menu/subtitle.png)
+![A menu with a button labeled "Projects" and a subtitle labeled "Hog Mobile"](/gfx/SwiftUI/Menu/subtitle.png)
 
 It just gets ignored. Fine.
 
@@ -291,7 +291,7 @@ Menu {
 }
 ```
 
-![](/gfx/SwiftUI/Menu/button-with-icon-2.png)
+![A menu with a button labeled "Projects" and an icon of a carrot. The menu item is notably missing a subtitle.](/gfx/SwiftUI/Menu/button-with-icon-2.png)
 
 Well gosh darnit. Where did our subtitle go?
 
@@ -314,7 +314,7 @@ Menu {
 }
 ```
 
-![](/gfx/SwiftUI/Menu/button-with-subtitle-and-icon.png)
+![A menu with a button labeled "Projects", a subtitle labeled "Hog Mobile", and an icon of a carrot](/gfx/SwiftUI/Menu/button-with-subtitle-and-icon.png)
 
 ## Concluding thoughts
 
