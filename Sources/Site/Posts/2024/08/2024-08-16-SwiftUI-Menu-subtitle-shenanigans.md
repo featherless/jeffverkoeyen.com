@@ -116,12 +116,7 @@ Menu {
 
 ![A menu with two disabled buttons, a text button and a button with an icon of a carrot](/gfx/SwiftUI/Menu/text-and-icon.png)
 
-Weird. In isolation, this kind of makes sense; the `Text` and `Image` are both treated as separate
-elements.
-
-But we just saw that the same lines of code in a `Button` resulted in the items being treated as a
-single menu item. This isn't *too* unusual, but it's important to note that `Menu` use of
-`@ViewBuilder` here is creating some ambiguity in how the API is meant to be used. 
+This makes sense: the `Text` and `Image` are both treated as separate elements.
 
 ---
 
