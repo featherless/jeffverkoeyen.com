@@ -122,7 +122,7 @@ This makes sense: the `Text` and `Image` are both treated as separate elements.
 
 ## A quick detour into stacks
 
-SwiftUI has trained us that using VStacks is a common way to make subtitle views, so we might think
+SwiftUI has trained us that using `VStack` is a common way to make subtitle views, so we might think
 this is a way to add subtitles to our `Menu` items, too.
 
 What happens if we put a `VStack` in a `Menu` then? 
@@ -201,7 +201,7 @@ So let's conclude that stacks are essentially ignored in a `Menu` context.
 
 ## Subtitles (aka: shenanigans)
 
-We just learned that VStacks don't stack information together in `Menu`; they're essentially treated
+We just learned that stacks don't stack information together in `Menu`; they're essentially treated
 as pass-through entities.
 
 Let's say we didn't know that though and tried to use a `VStack` to make a subtitle `Menu` item
