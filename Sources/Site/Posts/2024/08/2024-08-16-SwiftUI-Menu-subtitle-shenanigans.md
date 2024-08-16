@@ -347,8 +347,8 @@ It goes on to say:
 > This behavior does not apply to buttons outside of a menu’s content.
 
 Unfortunately it's very likely that you won't be reading this particular part of the documentation
-if you're just happily hacking away. This might be improveable, so I've filed feedback to Apple with
-the following asks:
+if you're just happily hacking away. This might be improveable, so I've filed feedback (FB14828811)
+to Apple with the following asks:
 
 - Support `VStack` in `Menu` items for building subtitle items.
 - Support sibling `Text` elements in `Label`s with images.
