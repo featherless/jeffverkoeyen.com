@@ -37,12 +37,11 @@ struct SwiftCode: View {
       case .prefixOperator,
           .binaryOperator,
           .postfixOperator,
-          .stringSegment,
           .wildcard,
           .dollarIdentifier:
         Slipstream.DOMString(token.text)
-      case .stringQuote, .singleQuote:
-        Quotes(string: token.text)
+      case .stringQuote, .singleQuote, .stringSegment:
+        QuotedText(string: token.text)
       default:
         if token.tokenKind.isPunctuation {
           Slipstream.DOMString(token.text)
@@ -87,11 +86,12 @@ private struct Literal: View {
   }
 }
 
-private struct Quotes: View {
+private struct QuotedText: View {
   let string: String
   var body: some View {
     Slipstream.Span(string)
-      .textColor(.orange, darkness: 400)
+      .textColor(.orange, darkness: 600)
+      .textColor(.orange, darkness: 400, condition: .dark)
   }
 }
 

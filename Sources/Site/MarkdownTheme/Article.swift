@@ -67,33 +67,78 @@ struct Article: View {
         .cornerRadius(.medium)
 
       case let heading as Markdown.Heading:
+        let id = headerID(plainText: heading.plainText)
         switch heading.level {
         case 1:
           Slipstream.Heading(level: heading.level) {
+            Slipstream.Link(URL(string: "#\(id)")) {
+              Slipstream.Text("#")
+            }
+            .hidden()
+            .className("group-hover:flex")
+            .position(.absolute)
+            .className("-left-4")
+            .frame(width: 16, height: 16)
             context.recurse()
           }
+          .className("group")
+          .position(.relative)
           .fontSize(.extraExtraExtraLarge)
           .fontLeading(.snug)
           .bold()
           .margin(.bottom, 8)
           .fontDesign("rounded")
+          .id(id)
         case 2:
           Slipstream.Heading(level: heading.level) {
+            Slipstream.Link(URL(string: "#\(id)")) {
+              Slipstream.Text("#")
+            }
+            .hidden()
+            .className("group-hover:flex")
+            .position(.absolute)
+            .className("-left-4")
+            .frame(width: 16, height: 16)
             context.recurse()
           }
+          .className("group")
+          .position(.relative)
           .fontSize(.large)
           .bold()
           .margin(.bottom, 4)
+          .id(id)
         case 3:
           Slipstream.Heading(level: heading.level) {
+            Slipstream.Link(URL(string: "#\(id)")) {
+              Slipstream.Text("#")
+            }
+            .hidden()
+            .className("group-hover:flex")
+            .position(.absolute)
+            .className("-left-4")
+            .frame(width: 16, height: 16)
             context.recurse()
           }
+          .className("group")
+          .position(.relative)
           .bold()
           .margin(.bottom, 4)
+          .id(id)
         default:
           Slipstream.Heading(level: heading.level) {
+            Slipstream.Link(URL(string: "#\(id)")) {
+              Slipstream.Text("#")
+            }
+            .hidden()
+            .className("group-hover:flex")
+            .position(.absolute)
+            .className("-left-4")
+            .frame(width: 16, height: 16)
             context.recurse()
           }
+          .className("group")
+          .position(.relative)
+          .id(id)
         }
 
       case is Markdown.Paragraph:
@@ -198,6 +243,15 @@ struct Article: View {
         context.recurse()
       }
     }
+  }
+
+  private func headerID(plainText: String) -> String {
+    // From https://docs.gitlab.com/ee/user/markdown.html#header-ids-and-links
+    return plainText
+      .lowercased()
+      .replacingOccurrences(of: " ", with: "-")
+      .filter { $0.isLetter || $0.isNumber || $0 == "-" }
+      .replacingOccurrences(of: "--", with: "-")
   }
 
   private let document: Document
