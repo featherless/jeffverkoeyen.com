@@ -29,7 +29,7 @@ struct BlogPostView: View {
   var body: some View {
     Page(
       path: post.url.path(),
-      title: post.title
+      title: post.title?.filter({ $0 != "`" }) // Backticks appear to break social sharing title extractors
     ) {
       MediumContainer {
         navigation
