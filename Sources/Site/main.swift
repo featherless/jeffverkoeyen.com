@@ -76,6 +76,10 @@ func postURL(filePath file: URL) throws -> BlogPost? {
     return false
   } as? Markdown.Heading)?.plainText
 
+  let tableOfContents = document.children.compactMap { node in
+    return node as? Markdown.Heading
+  }
+
   let outputURL = blogURLPrefix
     .appending(components: String(format: "%04d", year), String(format: "%02d", month), String(format: "%02d", day))
     .appending(path: slug)
@@ -89,6 +93,7 @@ func postURL(filePath file: URL) throws -> BlogPost? {
     date: date,
     draft: file.deletingLastPathComponent().lastPathComponent == "Drafts",
     title: documentHeading,
+    tableOfContents: tableOfContents,
     content: postContent,
     document: document
   )

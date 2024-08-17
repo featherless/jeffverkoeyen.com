@@ -18,6 +18,17 @@ private struct ContextAwareParagraph<Content: View>: View {
   }
 }
 
+extension Markdown.Heading {
+  var headerID: String {
+    // From https://docs.gitlab.com/ee/user/markdown.html#header-ids-and-links
+    return plainText
+      .lowercased()
+      .replacingOccurrences(of: " ", with: "-")
+      .filter { $0.isLetter || $0.isNumber || $0 == "-" }
+      .replacingOccurrences(of: "--", with: "-")
+  }
+}
+
 struct Article: View {
   init(_ text: String) {
     self.document = Document(parsing: text)
@@ -67,7 +78,7 @@ struct Article: View {
         .cornerRadius(.medium)
 
       case let heading as Markdown.Heading:
-        let id = headerID(plainText: heading.plainText)
+        let id = heading.headerID
         switch heading.level {
         case 1:
           Slipstream.Heading(level: heading.level) {
@@ -233,15 +244,6 @@ struct Article: View {
         context.recurse()
       }
     }
-  }
-
-  private func headerID(plainText: String) -> String {
-    // From https://docs.gitlab.com/ee/user/markdown.html#header-ids-and-links
-    return plainText
-      .lowercased()
-      .replacingOccurrences(of: " ", with: "-")
-      .filter { $0.isLetter || $0.isNumber || $0 == "-" }
-      .replacingOccurrences(of: "--", with: "-")
   }
 
   private let document: Document

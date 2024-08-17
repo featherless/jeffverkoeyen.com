@@ -1,3 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@media (max-width: 1250px) and (min-width: 900px) {
+  div.toc-hide {
+    display: none;
+  }
+}

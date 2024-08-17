@@ -3,21 +3,30 @@ import Foundation
 import Markdown
 import Slipstream
 
-struct BlogPost {
-  // Locations
-  let fileURL: URL
-  let slug: String
-  let outputURL: URL
-  let url: URL
+struct TOCHyperlink: View {
+  let url: URL?
+  let text: String
+  var body: some View {
+    Slipstream.Link(url) {
+      Slipstream.DOMString(text)
+    }
+    .textColor(.link, darkness: 700)
+    .textColor(.link, darkness: 400, condition: .dark)
+    .fontWeight(600)
+    .fontSize(.small)
+    .underline(condition: .hover)
+  }
+}
 
-  // Metadata
-  let date: Date
-  let draft: Bool
+struct TOCListItem<Content: View>: View {
+  let content: () -> Content
 
-  // Article structure
-  let title: String?
-  let content: String
-  let document: Document
+  var body: some View {
+    Slipstream.ListItem {
+      content()
+    }
+    .listStyle(.decimal)
+  }
 }
 
 struct BlogPostView: View {
@@ -27,34 +36,58 @@ struct BlogPostView: View {
   let previous: BlogPost?
 
   var body: some View {
+    let headings = post.tableOfContents.filter({ $0.level == 2 })
     Page(
       path: post.url.path(),
       title: post.title?.filter({ $0 != "`" }) // Backticks appear to break social sharing title extractors
     ) {
-      MediumContainer {
-        navigation
+      Div {
         Div {
-          let postDate = post.date.formatted(date: .abbreviated, time: .omitted)
-          if post.draft {
-            Slipstream.Text("Draft: " + postDate)
-              .bold()
-              .textColor(.white)
-              .padding(16)
-              .background(.red, darkness: 500)
-          } else {
-            Slipstream.Text("Published: " + postDate)
+          Slipstream.Paragraph("Content")
+          Slipstream.List {
+            for heading in headings {
+              TOCListItem {
+                TOCHyperlink(url: URL(string: "#\(heading.headerID)"), text: heading.plainText)
+              }
+            }
           }
         }
-        .subtitleStyle()
-        .margin(.bottom, 8)
-        Article(post.content)
-        HorizontalRule()
-        navigation
+        .className("toc-hide")
+        .position(.absolute)
+        .float(.right)
+        .hidden()
+        .display(.block, condition: .desktop)
+        .padding(.horizontal, 16)
+        .className("w-[calc((100vw-796px)/2)]")
+        .position(.sticky)
+        .placement(top: 16)
+
+        MediumContainer {
+          navigation
+          Div {
+            let postDate = post.date.formatted(date: .abbreviated, time: .omitted)
+            if post.draft {
+              Slipstream.Text("Draft: " + postDate)
+                .bold()
+                .textColor(.white)
+                .padding(16)
+                .background(.red, darkness: 500)
+            } else {
+              Slipstream.Text("Published: " + postDate)
+            }
+          }
+          .subtitleStyle()
+          .margin(.bottom, 8)
+          Article(post.content)
+          HorizontalRule()
+          navigation
+        }
+        .textColor(.text, darkness: 950)
+        .textColor(.text, darkness: 200, condition: .dark)
+        .padding(.horizontal, 4)
+        .padding(.bottom, 32)
       }
-      .textColor(.text, darkness: 950)
-      .textColor(.text, darkness: 200, condition: .dark)
-      .padding(.horizontal, 4)
-      .padding(.bottom, 32)
+      .position(.relative)
     }
   }
 
