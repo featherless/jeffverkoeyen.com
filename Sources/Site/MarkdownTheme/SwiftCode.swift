@@ -113,7 +113,8 @@ private struct Identifier: View {
         .textColor(.palette(.purple, darkness: 600))
         .textColor(.palette(.purple, darkness: 400), condition: .dark)
     case \FunctionParameterSyntax.secondName,
-      \LabeledExprSyntax.label:
+      \LabeledExprSyntax.label,
+      \MultipleTrailingClosureElementSyntax.label:
       span
         .textColor(.palette(.purple, darkness: 500))
     case \StructDeclSyntax.name:
