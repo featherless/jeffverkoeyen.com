@@ -36,31 +36,33 @@ struct BlogPostView: View {
   let previous: BlogPost?
 
   var body: some View {
-    let headings = post.tableOfContents.filter({ $0.level == 2 })
     Page(
       path: post.url.path(),
       title: post.title?.filter({ $0 != "`" }) // Backticks appear to break social sharing title extractors
     ) {
       Div {
-        Div {
-          Slipstream.Paragraph("Content")
-          Slipstream.List {
-            for heading in headings {
-              TOCListItem {
-                TOCHyperlink(url: URL(string: "#\(heading.headerID)"), text: heading.plainText)
+        let headings = post.tableOfContents.filter({ $0.level == 2 })
+        if !headings.isEmpty {
+          Div {
+            Slipstream.Paragraph("Content")
+            Slipstream.List {
+              for heading in headings {
+                TOCListItem {
+                  TOCHyperlink(url: URL(string: "#\(heading.headerID)"), text: heading.plainText)
+                }
               }
             }
           }
+          .className("toc-hide")
+          .position(.absolute)
+          .float(.right)
+          .hidden()
+          .display(.block, condition: .desktop)
+          .padding(.horizontal, 16)
+          .className("w-[calc((100vw-796px)/2)]")
+          .position(.sticky)
+          .placement(top: 16)
         }
-        .className("toc-hide")
-        .position(.absolute)
-        .float(.right)
-        .hidden()
-        .display(.block, condition: .desktop)
-        .padding(.horizontal, 16)
-        .className("w-[calc((100vw-796px)/2)]")
-        .position(.sticky)
-        .placement(top: 16)
 
         MediumContainer {
           navigation
