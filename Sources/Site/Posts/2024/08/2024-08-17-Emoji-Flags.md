@@ -14,7 +14,8 @@ let emojiFlags = [
 ]
 ```
 
-...well then stay a while, because it turns out there's a *much* simpler way to do this.
+...well then stay a while, because it turns out there's a *much* simpler way to do this (for some
+definition of simpler).
 
 ## Unicode flags
 
