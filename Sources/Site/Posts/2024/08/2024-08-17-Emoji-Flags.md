@@ -36,7 +36,7 @@ BE | 🇧🇪 | `U+1F1E7` `U+1F1EA` | Belgium
 BR | 🇧🇷 | `U+1F1E7` `U+1F1F7` | Brazil
 BS | 🇧🇸 | `U+1F1E7` `U+1F1F8` | Bahamas
 
-First, notice how each flag has two unicode characters.
+First, notice how each flag has **two** unicode characters.
 
 Then, notice that all of the `B`-prefixed countries have the same first unicode character of
 `U+1F1E7`. This is not a coincidence!
