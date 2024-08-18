@@ -5,6 +5,51 @@ import Slipstream
 import SwiftParser
 import SwiftSyntax
 
+private enum TableContext {
+  case header
+  case body
+}
+
+private struct TableContextEnvironmentKey: EnvironmentKey {
+  static let defaultValue: TableContext = .body
+}
+
+extension EnvironmentValues {
+  fileprivate var tableContext: TableContext {
+    get { self[TableContextEnvironmentKey.self] }
+    set { self[TableContextEnvironmentKey.self] = newValue }
+  }
+}
+
+private struct ContextAwareTableCell<Content: View>: View {
+  @Environment(\.tableContext) var tableContext
+
+  @ViewBuilder let content: () -> Content
+
+  var body: some View {
+    switch tableContext {
+    case .header:
+      Slipstream.TableHeaderCell {
+        content()
+      }
+      .padding(8)
+      .background(.zinc, darkness: 200)
+      .background(.zinc, darkness: 900, condition: .dark)
+      .textAlignment(.center)
+      .className("first:rounded-tl-lg")
+      .className("last:rounded-tr-lg")
+    case .body:
+      Slipstream.TableCell {
+        content()
+      }
+      .padding(.horizontal, 8)
+      .padding(.horizontal, 24, condition: .desktop)
+      .padding(.vertical, 16)
+      .textAlignment(.center)
+    }
+  }
+}
+
 private struct ContextAwareParagraph<Content: View>: View {
   @Environment(\.disableParagraphMargins) var disableParagraphMargins
 
@@ -63,7 +108,8 @@ struct Article: View {
         .fontDesign(.monospaced)
         .background(.zinc, darkness: 200)
         .background(.black, condition: .dark)
-        .fontSize(.small)
+        .fontSize(.extraSmall)
+        .fontSize(.small, condition: .desktop)
         .modifier(ClassModifier(add: "overflow-scroll"))
 
       case let inlineCode as Markdown.InlineCode:
@@ -72,6 +118,7 @@ struct Article: View {
         }
         .padding(.horizontal, 6)
         .padding(.vertical, 4)
+        .fontLeading(.loose)
         .background(.zinc, darkness: 200)
         .background(.zinc, darkness: 800, condition: .dark)
         .fontWeight(500)
@@ -144,6 +191,41 @@ struct Article: View {
 
       case is Markdown.Paragraph:
         ContextAwareParagraph {
+          context.recurse()
+        }
+
+      case let table as Markdown.Table:
+        Div {
+          Slipstream.Table {
+            Slipstream.TableHeader {
+              context.recurseDetached(into: table.head)
+                .environment(\.tableContext, .header)
+            }
+
+            Slipstream.TableBody {
+              context.recurseDetached(into: table.body)
+                .environment(\.tableContext, .body)
+            }
+          }
+        }
+        .display(.table)
+        .margin(.horizontal, .auto)
+        .fontSize(.extraSmall, condition: .mobileOnly)
+        .margin(.bottom, Double.sectionMargin)
+        .border(Slipstream.Color(.zinc, darkness: 300))
+        .border(Slipstream.Color(.zinc, darkness: 700), condition: .dark)
+        .cornerRadius(.large)
+
+      case is Markdown.Table.Row:
+        Slipstream.TableRow {
+          context.recurse()
+        }
+        .border(Slipstream.Color(.zinc, darkness: 200), edges: .bottom)
+        .border(Slipstream.Color(.zinc, darkness: 800), edges: .bottom, condition: .dark)
+        .border(Slipstream.Color(.zinc, darkness: 800), width: 0, edges: .bottom, condition: .init(state: .last))
+
+      case is Markdown.Table.Cell:
+        ContextAwareTableCell {
           context.recurse()
         }
 
