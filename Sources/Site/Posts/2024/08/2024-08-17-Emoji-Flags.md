@@ -1,4 +1,4 @@
-# Emoji flags
+# Everything you never thought you wanted to know about emoji flags
 
 Let's say you're building an [analytics app](https://hogmobile.com) and you want a simple way
 to represent the location of an analytics event. If, like me, you thought "hey, emoji flags would be
