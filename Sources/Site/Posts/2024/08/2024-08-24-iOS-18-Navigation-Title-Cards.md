@@ -136,7 +136,7 @@ Text("Feed")
   }
 ```
 
-![A navigation card with an icon of a carrot, the title "Feed", and descriptive text "Your latest PostHog events in a unified timeline."](/gfx/SwiftUI/NavigationInfoCard/feed-card.mp4)
+![A navigation card with an icon of a carrot, the title "Feed", and descriptive text "Your latest PostHog events in a unified timeline."](/gfx/SwiftUI/NavigationInfoCard/feed-card.mov)
 
 And that's it! Here's the full solution for reference:
 
