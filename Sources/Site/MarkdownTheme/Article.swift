@@ -195,12 +195,13 @@ struct Article: View {
             ContextAwareParagraph {
               context.recurse()
             }
-            .padding(16)
+            .padding(8)
             .background(.orange, darkness: 200)
             .background(.orange, darkness: 950, condition: .dark)
             .fontWeight(500)
             .cornerRadius(.medium)
             .italic()
+            .fontSize(.small)
           }
         } else {
           ContextAwareParagraph {
