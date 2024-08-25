@@ -104,7 +104,8 @@ private struct Identifier: View {
 
     switch keyPathInParent {
     case \IdentifierTypeSyntax.name,
-      \FunctionDeclSyntax.name:
+      \FunctionDeclSyntax.name,
+      \DeclNameArgumentSyntax.name:
       span
         .textColor(.palette(.pink, darkness: 600))
         .textColor(.palette(.pink, darkness: 400), condition: .dark)

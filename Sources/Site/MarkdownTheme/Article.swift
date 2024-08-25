@@ -189,9 +189,23 @@ struct Article: View {
           .id(id)
         }
 
-      case is Markdown.Paragraph:
-        ContextAwareParagraph {
-          context.recurse()
+      case let paragraph as Markdown.Paragraph:
+        if paragraph.plainText.hasPrefix("Note:") {
+          Div {
+            ContextAwareParagraph {
+              context.recurse()
+            }
+            .padding(16)
+            .background(.orange, darkness: 200)
+            .background(.orange, darkness: 950, condition: .dark)
+            .fontWeight(500)
+            .cornerRadius(.medium)
+            .italic()
+          }
+        } else {
+          ContextAwareParagraph {
+            context.recurse()
+          }
         }
 
       case let table as Markdown.Table:
@@ -268,12 +282,13 @@ struct Article: View {
         if let destination = image.source {
           Div {
             Slipstream.Image(URL(string: destination))
-              .accessibilityLabel(image.title ?? "")
+              .accessibilityLabel(image.plainText)
               .border(.white, width: 4)
               .border(.init(.zinc, darkness: 700), width: 4, condition: .dark)
               .cornerRadius(.extraExtraLarge)
               .modifier(ClassModifier(add: "shadow-puck"))
               .margin(.horizontal, .auto)
+              .frame(maxHeight: 400)
           }
           .padding(.horizontal, 16)
           .margin(.bottom, Double.sectionMargin)
