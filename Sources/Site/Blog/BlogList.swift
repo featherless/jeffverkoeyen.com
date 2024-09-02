@@ -139,7 +139,8 @@ struct BlogList: View {
             }
           }
         }
-        .textColor(.white)
+        .textColor(.text, darkness: 950)
+        .textColor(.text, darkness: 200, condition: .dark)
       }
       .padding(.bottom, 16)
     }
