@@ -110,13 +110,8 @@ for (index, post) in posts.enumerated() {
     previous: previous
   )
 }
-if let mostRecentPost = posts.last {
-  sitemap["blog/index.html"] = BlogPostView(
-    post: mostRecentPost,
-    next: nil,
-    previous: posts.dropLast().last
-  )
-}
+
+sitemap["blog/index.html"] = BlogList(posts: posts)
 
 try renderSitemap(sitemap, to: siteURL)
 
