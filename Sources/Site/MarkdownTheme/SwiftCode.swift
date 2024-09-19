@@ -19,7 +19,11 @@ struct SwiftCode: View {
         Trivia(pieces: token.leadingTrivia.pieces)
       }
       switch token.tokenKind {
-      case .keyword:
+      case .keyword,
+          .poundIf,
+          .poundAvailable,
+          .poundElse,
+          .poundEndif:
         Keyword(string: token.text)
       case .atSign:
         if token.keyPathInParent == \AttributeSyntax.atSign {
@@ -137,7 +141,8 @@ private struct Identifier: View {
       \MacroExpansionExprSyntax.macroName,
       \MacroExpansionDeclSyntax.macroName,
       \ImportPathComponentSyntax.name,
-      \ClosureShorthandParameterSyntax.name:
+      \ClosureShorthandParameterSyntax.name,
+      \PlatformVersionSyntax.platform:
       span
         .textColor(.palette(.zinc, darkness: 950))
         .textColor(.palette(.zinc, darkness: 50), condition: .dark)
