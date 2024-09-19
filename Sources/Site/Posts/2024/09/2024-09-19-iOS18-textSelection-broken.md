@@ -47,6 +47,10 @@ struct SelectableText: View {
     self.string = string
   }
 
+  init<F>(_ input: F.FormatInput, format: F) where F: FormatStyle, F.FormatInput: Equatable, F.FormatOutput == String {
+    self.string = format.format(input)
+  }
+
   var body: some View {
 #if !os(watchOS)
     if #available(iOS 18, *) {
