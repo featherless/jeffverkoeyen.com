@@ -3,6 +3,8 @@
 If you're using linear gradients in SwiftUI's Charts framework, make sure that the delta between
 every color stop is at least `0.0001`.
 
+---
+
 Let's say you want to draw a linear gradient with hard stops, like the one used in
 [Sidecar's](http://sidecar.clutch.engineering/) trip logger:
 
