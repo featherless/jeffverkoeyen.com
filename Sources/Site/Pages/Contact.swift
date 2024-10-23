@@ -7,7 +7,7 @@ struct Contact: View {
     Page(
       path: "/contact",
       title: "contact",
-      description: "Jeff Verkoeyen is best reached by email at jverkoey@gmail.com."
+      description: "Jeff Verkoeyen is best reached by email at jeff@featherless.design."
     ) {
       NarrowContainer {
         ResponsiveStack {
@@ -22,7 +22,7 @@ struct Contact: View {
           .fontSize(.extraExtraLarge)
           .fontWeight(500)
           .underline(condition: .hover)
-          Link("jverkoey@gmail.com", destination: URL(string: "mailto:jverkoey@gmail.com"))
+          Link("jeff@featherless.design", destination: URL(string: "mailto:jeff@featherless.design"))
             .fontSize(.extraExtraLarge)
             .fontWeight(500)
             .underline(condition: .hover)

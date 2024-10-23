@@ -158,7 +158,7 @@ let atomFeed = """
 	<author>
 		<name>Jeff Verkoeyen</name>
     <uri>\(site)</uri>
-    <email>jverkoey@gmail.com</email>
+    <email>jeff@featherless.design</email>
 	</author>
 \(atomEntries)
 </feed>
