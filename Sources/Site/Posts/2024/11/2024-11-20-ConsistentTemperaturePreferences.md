@@ -4,7 +4,7 @@ iOS' Settings app allows for a variety of fine-tunings of user preferences, whic
 
 ![The Language & Region Settings page on iOS, showing a selected temperature preference of Celsius](/gfx/temperaturepref.png)
 
-One of [Sidecar](https://sidecar.clutch.engineering)'s core design principles is to **reduce actions to value**, and in this spirit I wanted Sidecar to respect system preferences out of the box while still providing the option to override them within the app. This desire meant supporting metric vs imperial measurements, 12 vs 24 hour time, and - you guessed it - temperature preferences.
+One of [Clutch Engineering's](https://clutch.engineering)'s core design principles is to **reduce actions to value**, and in this spirit I wanted Sidecar to respect system preferences out of the box while still providing the option to override them within the app. This desire meant supporting metric vs imperial measurements, 12 vs 24 hour time, and - you guessed it - temperature preferences.
 
 ## The problem
 
