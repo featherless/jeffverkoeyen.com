@@ -1,0 +1,22 @@
+{
+    "configurations": [
+        {
+            "type": "swift",
+            "request": "launch",
+            "args": [],
+            "cwd": "${workspaceFolder:jeffverkoeyen.com}",
+            "name": "Debug Site",
+            "program": "${workspaceFolder:jeffverkoeyen.com}/.build/debug/Site",
+            "preLaunchTask": "swift: Build Debug Site"
+        },
+        {
+            "type": "swift",
+            "request": "launch",
+            "args": [],
+            "cwd": "${workspaceFolder:jeffverkoeyen.com}",
+            "name": "Release Site",
+            "program": "${workspaceFolder:jeffverkoeyen.com}/.build/release/Site",
+            "preLaunchTask": "swift: Build Release Site"
+        }
+    ]
+}
