@@ -35,27 +35,8 @@ Let me walk you through the math, compare against the alternatives, and show you
 
 From October 1-17, 2025, the Clutch Engineering macOS runners processed **28,723 minutes** of build time across two main workloads:
 
-**Valhalla builds: 11,393 minutes** (40% of total)
-
-These workflows build and deploy fresh versions of the world map to Clutch Engineering's routing service every day:
-
-- Europe: 4,108 minutes (17 deployments)
-- Asia: 2,846 minutes (17 deployments)
-- North America: 2,563 minutes (20 deployments)
-- South America: 614 minutes (17 deployments)
-- Africa: 966 minutes (16 deployments)
-- Australia/Oceania: 169 minutes (16 deployments)
-- Central America: 91 minutes (16 deployments)
-- Antarctica: 36 minutes (16 deployments)
-
-**Sidecar CI: 17,330 minutes** (60% of total)
-
-The remaining time goes to continuous integration for Sidecar, which includes:
-
-- Main Sidecar builds: 3,268 minutes (324 runs)
-- Phonecar (iOS-only) builds: 1,828 minutes (307 runs)
-- Dozens of test suites for various Swift packages (ELMCheck, CANStudio, PIDDetectorKit, etc.)
-- TestFlight deployments: 64 minutes (13 runs)
+- **Valhalla builds: 11,393 minutes** (40% of total)
+- **Sidecar CI: 17,330 minutes** (60% of total)
 
 If I were running these on GitHub's hosted macOS runners, here's what it would cost:
 
