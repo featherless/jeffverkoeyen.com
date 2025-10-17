@@ -167,6 +167,12 @@ The MacBook Pro adds maybe another $3/month.
 
 Compare that to the $4,191/month for GitHub, or even the $628/month for CircleCI's 4 CPU runners.
 
+### Multiple runners per machine
+
+One optimization worth mentioning: you can run multiple GitHub Actions runner instances on a single machine. The Clutch Engineering build cluster runs 3-5 runners per machine, which means those three physical machines provide 12+ concurrent build slots. This is super useful for shorter test suites that don't max out the CPU; you can run multiple tests in parallel on the same hardware.
+
+![Clutch Engineering build cluster](/gfx/2025/10/build-cluster.png)
+
 ### Maintenance cost
 
 Setup took me about an hour for the new Mac Mini. Maintenance has been essentially zero; these machines just work. The GitHub Actions runner software auto-updates, macOS is stable, and builds are reliable.
